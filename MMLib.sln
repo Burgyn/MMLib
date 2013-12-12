@@ -1,0 +1,65 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Express 2012 for Windows Desktop
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MMLib", "MMLib\MMLib.csproj", "{DCAB5FCB-A6BE-44BF-A440-64561101FA3E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MMLib.Extensions", "MMLib.Extensions\MMLib.Extensions.csproj", "{F355B0C6-7328-41D7-9BFE-E3009705A53E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MMLib.Extensions.Test", "MMLib.Extensions.Test\MMLib.Extensions.Test.csproj", "{DE9877E7-AAB9-4A81-ACC0-F5472AD1A5ED}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MMLib.RapidPrototyping", "MMLib.RapidPrototyping\MMLib.RapidPrototyping.csproj", "{55D23531-9A8D-46A7-A5FB-28109CD4B2EE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MMLib.RapidPrototyping.Test", "MMLib.RapidPrototyping.Test\MMLib.RapidPrototyping.Test.csproj", "{42DC8504-13DF-4280-9938-6B7D833FAB73}"
+EndProject
+Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 6
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://tfs.codeplex.com/tfs/tfs36
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = MMLib.Extensions.Test\\MMLib.Extensions.Test.csproj
+		SccProjectName1 = MMLib.Extensions.Test
+		SccLocalPath1 = MMLib.Extensions.Test
+		SccProjectUniqueName2 = MMLib.Extensions\\MMLib.Extensions.csproj
+		SccProjectName2 = MMLib.Extensions
+		SccLocalPath2 = MMLib.Extensions
+		SccProjectUniqueName3 = MMLib.RapidPrototyping.Test\\MMLib.RapidPrototyping.Test.csproj
+		SccProjectName3 = MMLib.RapidPrototyping.Test
+		SccLocalPath3 = MMLib.RapidPrototyping.Test
+		SccProjectUniqueName4 = MMLib.RapidPrototyping\\MMLib.RapidPrototyping.csproj
+		SccProjectName4 = MMLib.RapidPrototyping
+		SccLocalPath4 = MMLib.RapidPrototyping
+		SccProjectUniqueName5 = MMLib\\MMLib.csproj
+		SccProjectName5 = MMLib
+		SccLocalPath5 = MMLib
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DCAB5FCB-A6BE-44BF-A440-64561101FA3E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DCAB5FCB-A6BE-44BF-A440-64561101FA3E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DCAB5FCB-A6BE-44BF-A440-64561101FA3E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DCAB5FCB-A6BE-44BF-A440-64561101FA3E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F355B0C6-7328-41D7-9BFE-E3009705A53E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F355B0C6-7328-41D7-9BFE-E3009705A53E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F355B0C6-7328-41D7-9BFE-E3009705A53E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F355B0C6-7328-41D7-9BFE-E3009705A53E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DE9877E7-AAB9-4A81-ACC0-F5472AD1A5ED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DE9877E7-AAB9-4A81-ACC0-F5472AD1A5ED}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DE9877E7-AAB9-4A81-ACC0-F5472AD1A5ED}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DE9877E7-AAB9-4A81-ACC0-F5472AD1A5ED}.Release|Any CPU.Build.0 = Release|Any CPU
+		{55D23531-9A8D-46A7-A5FB-28109CD4B2EE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{55D23531-9A8D-46A7-A5FB-28109CD4B2EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{55D23531-9A8D-46A7-A5FB-28109CD4B2EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{55D23531-9A8D-46A7-A5FB-28109CD4B2EE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{42DC8504-13DF-4280-9938-6B7D833FAB73}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{42DC8504-13DF-4280-9938-6B7D833FAB73}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{42DC8504-13DF-4280-9938-6B7D833FAB73}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{42DC8504-13DF-4280-9938-6B7D833FAB73}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
