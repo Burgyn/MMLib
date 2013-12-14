@@ -61,6 +61,28 @@ namespace MMLib.RapidPrototyping.Test.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Lubim Ta.
+        ///Dala som hriat veceru.
+        ///Este furt to sviet.
+        ///Teraz to zhaslo.
+        ///Tieto cukriky by som potrebovala niekam inam supnut.
+        ///Non nisl in, metus proin.
+        ///Ut justo, sodales proin arcu, vitae luctus mollis.
+        ///Neque a laoreet, ullam bibendum.
+        ///Bibendum magna, sit lectus.
+        ///Ac in tortor, quisque lectus, cubilia non bibendum.
+        ///Nullam enim quis, imperdiet vehicula, magna in sem.
+        ///Vel congue a, habitasse tellus.
+        ///Elementum feugiat velit, dictum libero.
+        ///Nascetur blandit velit, quis integer..
+        /// </summary>
+        internal static string loremIpsum {
+            get {
+                return ResourceManager.GetString("loremIpsum", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Milan
         ///Zuzka
         ///Peter
@@ -77,7 +99,11 @@ namespace MMLib.RapidPrototyping.Test.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to Hobza
+        ///Martiniak
+        ///Petrák
+        ///Gonščák
+        ///Husák.
         /// </summary>
         internal static string slovak_last_name {
             get {

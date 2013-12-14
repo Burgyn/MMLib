@@ -53,10 +53,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Generators\ILoremIpsumGenerator.cs" />
+    <Compile Include="Generators\Repositories\ILoremIpsumRepository.cs" />
     <Compile Include="Generators\IPersonGenerator.cs" />
     <Compile Include="Generators\IWordGenerator.cs" />
+    <Compile Include="Generators\LoremIpsumGenerator.cs" />
     <Compile Include="Generators\PersonGenerator.cs" />
     <Compile Include="Generators\Repositories\IWordRepository.cs" />
+    <Compile Include="Generators\Repositories\LoremIpsumRepository.cs" />
     <Compile Include="Generators\Repositories\RepositoryDependencyFactory.cs" />
     <Compile Include="Generators\Repositories\WordRepository.cs" />
     <Compile Include="Generators\WordGenerator.cs" />
@@ -93,6 +97,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="1386896927_37130.ico" />
+    <None Include="Resources\loremIpsum.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

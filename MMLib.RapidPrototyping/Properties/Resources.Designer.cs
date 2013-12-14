@@ -269,5 +269,28 @@ namespace MMLib.RapidPrototyping.Properties {
                 return ResourceManager.GetString("english_words_lowercase", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Lorem ipsum dolor sit amet, ornare neque vehicula, sapien donec nunc, nisl sagittis.
+        ///Erat mattis, nisl adipiscing, sed et lectus.
+        ///Vitae netus et, proin eros in.
+        ///Delectus pede, aenean tellus.
+        ///Dictum nibh.
+        ///Turpis velit, elit porttitor vel.
+        ///Feugiat nunc ultricies, ante maecenas, aliquet in.
+        ///Fusce erat.
+        ///Tincidunt vestibulum feugiat, neque pellentesque, vitae scelerisque.
+        ///Cras fermentum, ut in vivamus.
+        ///Mauris tempus.
+        ///Purus risus.
+        ///Sit eget, proin at iaculis, sed diam.
+        ///Amet euismod vitae.
+        ///Porta inter [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string loremIpsum {
+            get {
+                return ResourceManager.GetString("loremIpsum", resourceCulture);
+            }
+        }
     }
 }

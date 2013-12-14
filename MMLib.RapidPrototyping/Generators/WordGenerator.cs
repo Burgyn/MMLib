@@ -90,6 +90,21 @@ namespace MMLib.RapidPrototyping.Generators
 
 
         /// <summary>
+        /// Generate words.
+        /// </summary>
+        /// <param name="count">Count of new generated words. Rather then 0.</param>
+        /// <returns>Generated words.</returns>
+        public IEnumerable<string> Next(int count)
+        {
+            Contract.Requires(count > 0);
+            Contract.Ensures(Contract.Result<IEnumerable<string>>() != null);
+
+            return from i in Enumerable.Range(0, count)
+                   select Next();
+        }
+
+
+        /// <summary>
         /// Set new seed.
         /// </summary>
         /// <param name="seed">A number used to calculate a starting value for the pseudo-random sequence. If a negative number is specified, the absolute value of the number is used.</param>
@@ -99,6 +114,6 @@ namespace MMLib.RapidPrototyping.Generators
         }
 
         #endregion
-      
+       
     }
 }

@@ -22,6 +22,7 @@ namespace MMLib.RapidPrototyping.Generators.Repositories
 
         #endregion
 
+
         #region Private fields
 
         private static IUnityContainer _container;
@@ -145,6 +146,10 @@ namespace MMLib.RapidPrototyping.Generators.Repositories
             if (!Container.IsRegistered<IWordGenerator>())
             {
                 Container.RegisterInstance<IWordGenerator>(new WordGenerator());
+            }
+            if (!Container.IsRegistered<ILoremIpsumRepository>())
+            {
+                Container.RegisterInstance<ILoremIpsumRepository>(new LoremIpsumRepository());
             }
         }
 

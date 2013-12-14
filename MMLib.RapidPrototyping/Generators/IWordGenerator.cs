@@ -17,6 +17,15 @@ namespace MMLib.RapidPrototyping.Generators
         /// <returns>Next genereted word.</returns>
         string Next();
 
+
+        /// <summary>
+        /// Generate words.
+        /// </summary>
+        /// <param name="count">Count of new generated words. Rather then 0.</param>
+        /// <returns>Generated words.</returns>
+        IEnumerable<string> Next(int count);
+
+
         /// <summary>
         /// Set new seed.
         /// </summary>
