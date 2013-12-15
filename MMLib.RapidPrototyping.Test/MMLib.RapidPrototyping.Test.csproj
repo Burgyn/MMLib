@@ -58,6 +58,7 @@
     <Compile Include="Generators\Repositories\FakeNameRepository.cs" />
     <Compile Include="Generators\PersonGeneratorTest.cs" />
     <Compile Include="Generators\Repositories\FakeWordRepository.cs" />
+    <Compile Include="Generators\Repositories\RepositoryDependencyFactoryTest.cs" />
     <Compile Include="Generators\Repositories\WordRepositoryTest.cs" />
     <Compile Include="Generators\WordGeneratorTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

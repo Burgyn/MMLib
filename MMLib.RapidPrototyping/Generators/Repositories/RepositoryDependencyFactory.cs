@@ -122,6 +122,26 @@ namespace MMLib.RapidPrototyping.Generators.Repositories
             return ret;
         }
 
+
+        /// <summary>
+        /// Register repository with first names.
+        /// </summary>
+        /// <param name="firstNameRepository">First names repository</param>
+        public static void RegisterFirstNameRepository(IWordRepository firstNameRepository)
+        {
+            Container.RegisterInstance<IWordRepository>(FIRST_NAME_FLAG, firstNameRepository);
+        }
+
+
+        /// <summary>
+        /// Register repository with last names.
+        /// </summary>
+        /// <param name="lastNameRepository">Last names repository</param>
+        public static void RegisterLastNameRepository(IWordRepository lastNameRepository)
+        {
+            Container.RegisterInstance<IWordRepository>(LAST_NAME_FLAG, lastNameRepository);
+        }
+
         #endregion
 
 
