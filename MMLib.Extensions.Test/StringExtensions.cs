@@ -401,18 +401,18 @@ namespace MMLib.Extensions.Test
         #region Examples
 
         [TestMethod]
-public void Example_Tests()
-{
-    string target = "aácčeéií";
-    Assert.AreEqual("aacceeii", target.RemoveDiacritics());
+        public void Example_Tests()
+        {
+            string target = "aácčeéií";
+            Assert.AreEqual("aacceeii", target.RemoveDiacritics());
 
-    target = "123,354";
-    Assert.IsTrue(target.IsNumber());
+            target = "123,354";
+            Assert.IsTrue(target.IsNumber());
 
-    target = "Very long sentence";
+            target = "Very long sentence";
 
-    Assert.AreEqual("Very long", target.Truncate(9));
-} 
+            Assert.AreEqual("Very long", target.Truncate(9));
+        } 
 
         #endregion
     }
