@@ -350,5 +350,70 @@ namespace MMLib.Extensions.Test
         }
 
         #endregion
+
+
+        #region IsNumber test
+
+        [TestMethod]
+        public void IsNumber_TrueTest()
+        {
+            string target = "1224352";
+
+            Assert.IsTrue(target.IsNumber());
+
+            target = "123,243";
+            Assert.IsTrue(target.IsNumber());
+
+            target = "123,243";
+            Assert.IsTrue(target.IsNumber());
+
+            target = "123,00";
+            Assert.IsTrue(target.IsNumber());
+
+            target = "0,243";
+            Assert.IsTrue(target.IsNumber());
+        }
+
+
+        [TestMethod]
+        public void IsNumber_FalseTest()
+        {
+            string target = null;
+
+            Assert.IsFalse(target.IsNumber());
+
+            target =string.Empty;
+            Assert.IsFalse(target.IsNumber());
+
+            target = "1a";
+            Assert.IsFalse(target.IsNumber());
+
+            target = "1.3";
+            Assert.IsFalse(target.IsNumber());
+
+            target = "a13";
+            Assert.IsFalse(target.IsNumber());
+        } 
+
+        #endregion
+
+
+        #region Examples
+
+        [TestMethod]
+public void Example_Tests()
+{
+    string target = "aácčeéií";
+    Assert.AreEqual("aacceeii", target.RemoveDiacritics());
+
+    target = "123,354";
+    Assert.IsTrue(target.IsNumber());
+
+    target = "Very long sentence";
+
+    Assert.AreEqual("Very long", target.Truncate(9));
+} 
+
+        #endregion
     }
 }

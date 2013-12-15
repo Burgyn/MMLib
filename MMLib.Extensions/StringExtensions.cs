@@ -206,5 +206,25 @@ namespace MMLib.Extensions
 
             return ret;
         }
+
+
+        /// <summary>
+        /// Check, if string value is number.
+        /// </summary>
+        /// <param name="value">String value.</param>
+        /// <returns>True: if string value is number, else False.</returns>
+        public static bool IsNumber(this string value)
+        {
+            double number;
+
+            bool ret = false;
+
+            if (!string.IsNullOrEmpty(value))
+            {
+                ret = double.TryParse(value.Trim(), out number);
+            }
+
+            return ret;
+        }
     }
 }
