@@ -48,7 +48,7 @@ namespace MMLib.Extensions
 
 
         /// <summary>
-        /// Truncate string to max lenght. Origin value can by null and Strin.Empty.
+        /// Truncate string to max lenght. Origin value can by null and String.Empty.
         /// </summary>
         /// <param name="value">Origin string value.</param>
         /// <param name="maxLength">Max length of new string. Greater than zero.</param>
