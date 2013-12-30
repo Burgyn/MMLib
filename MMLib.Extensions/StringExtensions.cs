@@ -2,7 +2,10 @@
 using System.Collections.Generic;
 using System.Diagnostics.Contracts;
 using System.Linq;
+using System.Net;
+using System.Runtime;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace MMLib.Extensions
@@ -226,5 +229,180 @@ namespace MMLib.Extensions
 
             return ret;
         }
+
+
+        /// <summary>
+        ///  Indicates whether the specified string is null or an System.String.Emptystring.
+        /// </summary>
+        /// <param name="value">The string to test.</param>
+        /// <returns>true if the value parameter is null or an empty string (""); otherwise, false.</returns>
+        [TargetedPatchingOptOut("Performance critical to inline across NGen image boundaries")]
+        public static bool IsNullOrEmpty(this string value)
+        {
+            return string.IsNullOrEmpty(value);
+        }
+
+
+        /// <summary>
+        ///  Indicates whether a specified string is null, empty, or consists only of  white-space characters.
+        /// </summary>
+        /// <param name="value">The string to test.</param>
+        /// <returns> true if the value parameter is null or System.String.Empty, or if value consists
+        ///     exclusively of white-space characters.</returns>
+        public static bool IsNullOrWhiteSpace(this string value)
+        {
+            return string.IsNullOrWhiteSpace(value);
+        }
+
+
+        /// <summary>
+        /// Replaces one or more format items in a specified string with the string representation
+        ///     of a specified object.
+        /// </summary>
+        /// <param name="format">A composite format string.</param>
+        /// <param name="arg0">The object to format.</param>
+        /// <returns>A copy of format in which any format items are replaced by the string representation of arg0.</returns>
+        /// <exception cref="System.FormatException">
+        /// The format item in format is invalid.-or- The index of a format item is not zero.
+        /// </exception>
+        public static string FormatAsPattern(this string format, object arg0)
+        {
+            Contract.Requires(!format.IsNullOrWhiteSpace());
+
+            return string.Format(format, arg0);
+        }
+
+
+        /// <summary>
+        /// Replaces one or more format items in a specified string with the string representation
+        ///     of a corresponding object in a specified array.
+        /// </summary>
+        /// <param name="format">A composite format string.</param>
+        /// <param name="args">An object array that contains zero or more objects to format.</param>
+        /// <returns>A copy of format in which any format items are replaced by the string representation of the corresponding objects in args.</returns>
+        /// <exception cref="System.FormatException">
+        /// The format item in format is invalid.-or- The index of a format item is not zero.
+        /// </exception>
+        public static string FormatAsPattern(this string format, params object[] args)
+        {
+            Contract.Requires(!format.IsNullOrWhiteSpace());
+
+            return string.Format(format, args);
+        }
+
+
+        /// <summary>
+        /// Join values to one string with separator.
+        /// </summary>
+        /// <param name="values">Values for join.</param>
+        /// <param name="separator">Separator.</param>
+        /// <returns>String, which contain joined values with separator.</returns>
+        public static string JoinToString(this object[] values, string separator)
+        {
+            Contract.Requires(values != null);
+            StringBuilder ret = new StringBuilder();
+            bool wasAppendedSeparator = false;
+
+            foreach (var item in values.Where(p => p != null).Select(p => p.ToString()))
+            {
+                if (!item.IsNullOrEmpty())
+                {
+                    ret.Append(item);
+                    if (!separator.IsNullOrEmpty())
+                    {
+                        ret.Append(separator);
+                        wasAppendedSeparator = true;
+                    }
+                }
+            }
+
+            return wasAppendedSeparator ? ret.ToString().Truncate(ret.Length - separator.Length) : ret.ToString();
+        }
+
+
+        /// <summary>
+        /// Join values to one string with separator.
+        /// </summary>
+        /// <param name="values">Values for join.</param>
+        /// <param name="separator">Separator.</param>
+        /// <returns>String, which contain joined values with separator.</returns>
+        public static string JoinToString(this List<string> values, string separator)
+        {
+            Contract.Requires(values != null);
+
+            return values.ToArray<object>().JoinToString(separator);
+        }
+
+
+        /// <summary>
+        /// Check value is null and then return value or string.Empty.
+        /// </summary>
+        /// <param name="value">Value which check.</param>
+        /// <returns>Value if value is not null, otherwise string.Empty.</returns>
+        public static string DefaultIfNull(this string value)
+        {
+            return value.DefaultIfNull(string.Empty);
+        }
+
+
+        /// <summary>
+        /// Check value is null and then return value or defValue.
+        /// </summary>
+        /// <param name="value">Value which check.</param>
+        /// <param name="defValue">Default value if value is null.</param>
+        /// <returns>Value if value is not null, otherwise defValue.</returns>
+        public static string DefaultIfNull(this string value, string defValue)
+        {
+            return value == null ? defValue : value;
+        }
+
+
+        /// <summary>
+        /// Check if specific email address is valid.
+        /// </summary>
+        /// <param name="emailAddress">Email address to test.</param>
+        /// <returns>true - if address is valid, otherwise false.</returns>
+        public static bool IsValidEmailAddress(this string emailAddress)
+        {
+            Regex regex = new Regex(@"^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$");
+            return regex.IsMatch(emailAddress);
+        }
+
+
+        /// <summary>
+        /// Check if specific IP address is valid.
+        /// </summary>
+        /// <param name="ipAddress">IP address to test.</param>
+        /// <returns>true - if address is valid, otherwise false.</returns>
+        public static bool IsValidIPAddress(this string ipAddress)
+        {
+            IPAddress ip;
+            if (IPAddress.TryParse(ipAddress, out ip))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+
+        /// <summary>
+        /// Check if specific URL address is valid.
+        /// </summary>
+        /// <param name="urlAddress">URL address to test.</param>
+        /// <returns>true - if address is valid, otherwise false.</returns>
+        public static bool IsValidUrlAddress(this string urlAddress)
+        {
+            return Uri.IsWellFormedUriString(urlAddress, UriKind.RelativeOrAbsolute);
+        }
+
+
+        //ToDo: Later:
+        //FormatWithMask
+        //Right
+        //CountSubString
+        //IsDate
     }
 }

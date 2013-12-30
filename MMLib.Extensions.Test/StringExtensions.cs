@@ -382,7 +382,7 @@ namespace MMLib.Extensions.Test
 
             Assert.IsFalse(target.IsNumber());
 
-            target =string.Empty;
+            target = string.Empty;
             Assert.IsFalse(target.IsNumber());
 
             target = "1a";
@@ -393,6 +393,227 @@ namespace MMLib.Extensions.Test
 
             target = "a13";
             Assert.IsFalse(target.IsNumber());
+        }
+
+        #endregion
+
+
+        #region Null or empty or white space test
+
+
+        [TestMethod]
+        public void IsNullOrEmpty_TrueTest()
+        {
+            string target = null;
+            Assert.IsTrue(target.IsNullOrEmpty());
+
+            target = string.Empty;
+            Assert.IsTrue(target.IsNullOrEmpty());
+        }
+
+
+        [TestMethod]
+        public void IsNullOrEmpty_FalseTest()
+        {
+            string target = "sdfsgfsd";
+            Assert.IsFalse(target.IsNullOrEmpty());
+
+            target = " ";
+            Assert.IsFalse(target.IsNullOrEmpty());
+        }
+
+
+        [TestMethod]
+        public void IsNullOrWhiteTest_TrueTest()
+        {
+            string target = null;
+            Assert.IsTrue(target.IsNullOrWhiteSpace());
+
+            target = string.Empty;
+            Assert.IsTrue(target.IsNullOrWhiteSpace());
+
+            target = " ";
+            Assert.IsTrue(target.IsNullOrWhiteSpace());
+
+            target = "    ";
+            Assert.IsTrue(target.IsNullOrWhiteSpace());
+        }
+
+
+        [TestMethod]
+        public void IsNullOrWhiteTest_FalseTest()
+        {
+            string target = "sdfsgfsd";
+            Assert.IsFalse(target.IsNullOrWhiteSpace());
+
+            target = "wwr";
+            Assert.IsFalse(target.IsNullOrWhiteSpace());
+        }
+
+        #endregion
+
+
+        #region Format tests
+
+        [TestMethod]
+        public void FormatAsPattern_Test()
+        {
+            string target = "Hello {0}";
+
+            Assert.AreEqual("Hello word", target.FormatAsPattern("word"));
+
+            Assert.AreEqual("Hello 1", target.FormatAsPattern(1));
+
+            target = "Count down {5}, {4}, {3}, {2}, {1}, {0}";
+
+            Assert.AreEqual("Count down 5, 4, 3, 2, 1, 0", target.FormatAsPattern(0, 1, 2, 3, 4, 5));
+        }
+
+        #endregion
+
+
+        #region Default if null
+
+        [TestMethod]
+        public void DefaultIfNull_TestStringEmpty()
+        {
+            string target = null;
+            Assert.AreEqual(string.Empty, target.DefaultIfNull());
+
+            target = "";
+            Assert.AreEqual("", target.DefaultIfNull());
+
+            target = " ";
+            Assert.AreEqual(" ", target.DefaultIfNull());
+
+            target = "asdf";
+            Assert.AreEqual("asdf", target.DefaultIfNull());
+        }
+
+
+        [TestMethod]
+        public void DefaultIfNull_Test()
+        {
+            string target = null;
+            Assert.AreEqual("hello", target.DefaultIfNull("hello"));
+
+            target = "";
+            Assert.AreEqual("", target.DefaultIfNull("hello"));
+
+            target = " ";
+            Assert.AreEqual(" ", target.DefaultIfNull("hello"));
+
+            target = "asdf";
+            Assert.AreEqual("asdf", target.DefaultIfNull("hello"));
+        }
+
+        #endregion
+
+
+        #region Join to string tests
+
+        [TestMethod]
+        public void JoinToString_ObjectsTest()
+        {
+            object[] target = new object[] { "Count down", 3, 2, 1, 0, null, string.Empty, "Done" };
+
+            Assert.AreEqual("Count down,3,2,1,0,Done", target.JoinToString(","));
+            Assert.AreEqual("Count down3210Done", target.JoinToString(null));
+        }
+
+
+        [TestMethod]
+        public void JoinToString_ListTest()
+        {
+            List<string> target = new List<string>() { "Count down", "3", "2", "1", "0", null, string.Empty, "Done" };
+
+            Assert.AreEqual("Count down,3,2,1,0,Done", target.JoinToString(","));
+            Assert.AreEqual("Count down3210Done", target.JoinToString(null));
+        }
+
+        #endregion
+
+
+        #region IsValid email address
+
+        [TestMethod]
+        public void IsValidEmailAddress_TrueTest()
+        {
+            Assert.IsTrue("mino@gmail.com".IsValidEmailAddress());
+            Assert.IsTrue("mino.gelecak@microsof.sk".IsValidEmailAddress());
+            Assert.IsTrue("peter.gokola@penta.cz".IsValidEmailAddress());
+            Assert.IsTrue("peter1.gokola@penta.cz".IsValidEmailAddress());
+        }
+
+
+        [TestMethod]
+        public void IsValidEmailAddress_TalseTest()
+        {
+            Assert.IsFalse("mino@gmail.c".IsValidEmailAddress());
+            Assert.IsFalse("mino.gelecak@microsof.skffd".IsValidEmailAddress());
+            Assert.IsFalse("mino.gelecak@microsof".IsValidEmailAddress());
+            Assert.IsFalse("mino.gel&ecak@microsof.sk".IsValidEmailAddress());
+            Assert.IsFalse("mino.gelec@ak@microsof.sk".IsValidEmailAddress());
+            Assert.IsFalse("m^ino.gelecak@microsof.sk".IsValidEmailAddress());
+            Assert.IsFalse("mino.gelecak@micr)osof.sk".IsValidEmailAddress());
+            Assert.IsFalse("m!ino.gelecak@microsof.sk".IsValidEmailAddress());
+            Assert.IsFalse("mi\no.gelecak@microsof.sk".IsValidEmailAddress());
+            Assert.IsFalse("min%o.gelecak@microsof.sk".IsValidEmailAddress());
+        } 
+
+        #endregion
+
+
+        #region IsValid IP address
+
+        [TestMethod]
+        public void IsValidIPAddress_TrueTest()
+        {
+            Assert.IsTrue("111.2.33.4".IsValidIPAddress());
+            Assert.IsTrue("1.1.1.1".IsValidIPAddress());
+            Assert.IsTrue("0.0.0.0".IsValidIPAddress());
+            Assert.IsTrue("255.255.255.255".IsValidIPAddress());
+            Assert.IsTrue("255.0.0.0".IsValidIPAddress());
+            Assert.IsTrue("196.168.1.1".IsValidIPAddress());
+
+            Assert.IsTrue("2001:0db8:85a3:0000:1319:8a2e:0370:7344".IsValidIPAddress());
+            Assert.IsTrue("2001:0db8:85a3::1319:8a2e:0370:7344".IsValidIPAddress());            
+        }
+
+        [TestMethod]
+        public void IsValidIPAddress_FalseTest()
+        {
+            Assert.IsFalse("1a11.2.33.4".IsValidIPAddress());
+            Assert.IsFalse("1.1.1.1.1".IsValidIPAddress());
+            Assert.IsFalse("0.0.0.256".IsValidIPAddress());
+            Assert.IsFalse("256.255.255.255".IsValidIPAddress());
+            Assert.IsFalse("255-.0.0.0".IsValidIPAddress());
+            Assert.IsFalse("300.168.1.1".IsValidIPAddress());
+
+            Assert.IsFalse("2002341:0db8:85a3:0000:1319:8a2e:0370:7344".IsValidIPAddress());
+        } 
+
+        #endregion
+
+
+        #region IsValid URL address
+
+        [TestMethod]
+        public void IsValidURLAddress_TrueTest()
+        {
+            Assert.IsTrue("https://mmlib.codeplex.com/".IsValidUrlAddress());
+            Assert.IsTrue("www.mmlib.codeplex.com".IsValidUrlAddress());
+            Assert.IsTrue("https://mmlib.codeplex.com/SourceControl/latest".IsValidUrlAddress());
+            Assert.IsTrue("www.google.com".IsValidUrlAddress());
+            Assert.IsTrue("www.google.sk".IsValidUrlAddress());
+        }
+
+
+        [TestMethod]
+        public void IsValidURLAddress_FalseTest()
+        {          
+            Assert.IsFalse("https:///mmlib.codeplex.com/SourceControl/latest".IsValidUrlAddress());
+            Assert.IsFalse("www.google.sk[]'\'/';;".IsValidUrlAddress());
         } 
 
         #endregion
@@ -412,7 +633,7 @@ namespace MMLib.Extensions.Test
             target = "Very long sentence";
 
             Assert.AreEqual("Very long", target.Truncate(9));
-        } 
+        }
 
         #endregion
     }
