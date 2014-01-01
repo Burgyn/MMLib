@@ -33,9 +33,11 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Release\MMLib.RapidPrototyping.XML</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>1386896927_37130.ico</ApplicationIcon>
+    <ApplicationIcon>
+    </ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.Practices.Unity">
