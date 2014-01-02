@@ -46,5 +46,37 @@ namespace MMLib.Extensions.Test
         } 
 
         #endregion
+
+
+        #region IsLeapYear
+
+        [TestMethod]
+        public void IsLeapYear_TrueTest()
+        {
+            DateTime target = new DateTime(2012, 1, 4);
+            Assert.IsTrue(target.IsLeapYear());
+
+            target = new DateTime(2008, 2, 14);
+            Assert.IsTrue(target.IsLeapYear());
+
+            target = new DateTime(2016, 2, 29);
+            Assert.IsTrue(target.IsLeapYear());
+        }
+
+
+        [TestMethod]
+        public void IsLeapYear_FalseTest()
+        {
+            DateTime target = new DateTime(2014, 1, 4);
+            Assert.IsFalse(target.IsLeapYear());
+
+            target = new DateTime(2013, 2, 14);
+            Assert.IsFalse(target.IsLeapYear());
+
+            target = new DateTime(2015, 2, 28);
+            Assert.IsFalse(target.IsLeapYear());
+        }
+
+        #endregion
     }
 }
