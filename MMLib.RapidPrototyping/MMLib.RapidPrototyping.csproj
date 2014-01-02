@@ -33,7 +33,7 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DocumentationFile>bin\Release\MMLib.RapidPrototyping.XML</DocumentationFile>
+    <DocumentationFile>..\Documentations\MMLib.RapidPrototyping.XML</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup>
     <ApplicationIcon>
