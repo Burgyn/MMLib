@@ -78,5 +78,48 @@ namespace MMLib.Extensions.Test
         }
 
         #endregion
+
+        #region IsLastDayOfMonth
+
+        [TestMethod]
+        public void IsLastDayOfMonth_TrueTest()
+        {
+            DateTime target = new DateTime(2012, 1, 31);
+            Assert.IsTrue(target.IsLastDayOfMonth());
+
+            target = new DateTime(2012, 2, 29);
+            Assert.IsTrue(target.IsLastDayOfMonth());
+
+            target = new DateTime(2013, 2, 28);
+            Assert.IsTrue(target.IsLastDayOfMonth());
+
+            target = new DateTime(2012, 4, 30);
+            Assert.IsTrue(target.IsLastDayOfMonth());
+
+            target = new DateTime(2012, 8, 31);
+            Assert.IsTrue(target.IsLastDayOfMonth());
+        }
+
+
+        [TestMethod]
+        public void IsLastDayOfMonth_FalseTest()
+        {
+            DateTime target = new DateTime(2012, 1, 30);
+            Assert.IsFalse(target.IsLastDayOfMonth());
+
+            target = new DateTime(2013, 2, 27);
+            Assert.IsFalse(target.IsLastDayOfMonth());
+
+            target = new DateTime(2012, 2, 28);
+            Assert.IsFalse(target.IsLastDayOfMonth());
+
+            target = new DateTime(2012, 3, 20);
+            Assert.IsFalse(target.IsLastDayOfMonth());
+
+            target = new DateTime(2012, 8, 30);
+            Assert.IsFalse(target.IsLastDayOfMonth());
+        }
+
+        #endregion
     }
 }
