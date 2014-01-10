@@ -50,8 +50,27 @@ namespace MMLib.Extensions
             return value == new DateTime(value.Year, value.Month, 1).AddMonths(1).AddDays(-1);
         }
 
+
+        /// <summary>
+        /// Determine whether date is date range.
+        /// </summary>
+        /// <param name="value">Checked date.</param>
+        /// <param name="startDate">Start date.</param>
+        /// <param name="endDate">End date.</param>
+        /// <returns>
+        /// true if value is in date range, otherwise false.
+        /// </returns>
+        public static bool IsInRange(this DateTime value, DateTime startDate, DateTime endDate)
+        {
+            Contract.Requires(value != null);
+            Contract.Requires(startDate != null);
+            Contract.Requires(endDate != null);
+            Contract.Requires(endDate > startDate);
+
+            return value >= startDate && value <= endDate;
+        }
+
         //ToDo: 
-        //Age
-        //IsInRange
+        //Age        
     }
 }

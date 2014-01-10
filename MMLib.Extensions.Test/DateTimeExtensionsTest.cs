@@ -43,7 +43,7 @@ namespace MMLib.Extensions.Test
 
             target = new DateTime(2015, 8, 5);
             Assert.IsFalse(target.IsWeekend());
-        } 
+        }
 
         #endregion
 
@@ -78,6 +78,7 @@ namespace MMLib.Extensions.Test
         }
 
         #endregion
+
 
         #region IsLastDayOfMonth
 
@@ -118,6 +119,71 @@ namespace MMLib.Extensions.Test
 
             target = new DateTime(2012, 8, 30);
             Assert.IsFalse(target.IsLastDayOfMonth());
+        }
+
+        #endregion
+
+
+        #region IsInRange
+
+        [TestMethod]
+        public void IsInRange_TrueTest()
+        {
+            DateTime target = new DateTime(2001, 1, 1);
+            DateTime start = new DateTime(2001, 1, 1);
+            DateTime end = new DateTime(2001, 2, 1);
+            Assert.IsTrue(target.IsInRange(start, end));
+
+            target = new DateTime(2001, 1, 1);
+            start = new DateTime(2000, 1, 1);
+            end = new DateTime(2004, 2, 1);
+            Assert.IsTrue(target.IsInRange(start, end));
+
+            target = new DateTime(2001, 2, 1);
+            start = new DateTime(2000, 1, 1);
+            end = new DateTime(2001, 2, 1);
+            Assert.IsTrue(target.IsInRange(start, end));
+
+            target = new DateTime(2001, 1, 1, 4, 4, 4);
+            start = new DateTime(2001, 1, 1, 4, 4, 3);
+            end = new DateTime(2004, 2, 1);
+            Assert.IsTrue(target.IsInRange(start, end));
+
+
+            target = new DateTime(2001, 1, 1, 4, 4, 4);
+            start = new DateTime(2001, 1, 1, 4, 4, 4);
+            end = new DateTime(2004, 2, 1);
+            Assert.IsTrue(target.IsInRange(start, end));
+        }
+
+
+        [TestMethod]
+        public void IsInRange_FalseTest()
+        {
+            DateTime target = new DateTime(2000, 1, 1);
+            DateTime start = new DateTime(2001, 1, 1);
+            DateTime end = new DateTime(2001, 2, 1);
+            Assert.IsFalse(target.IsInRange(start, end));
+
+            target = new DateTime(2005, 1, 1);
+            start = new DateTime(2000, 1, 1);
+            end = new DateTime(2004, 2, 1);
+            Assert.IsFalse(target.IsInRange(start, end));
+
+            target = new DateTime(2001, 2, 2);
+            start = new DateTime(2000, 1, 1);
+            end = new DateTime(2001, 2, 1);
+            Assert.IsFalse(target.IsInRange(start, end));
+
+            target = new DateTime(2001, 3, 1);
+            start = new DateTime(2000, 1, 1);
+            end = new DateTime(2001, 2, 1);
+            Assert.IsFalse(target.IsInRange(start, end));
+
+            target = new DateTime(2001, 1, 1, 4, 4, 2);
+            start = new DateTime(2001, 1, 1, 4, 4, 3);
+            end = new DateTime(2004, 2, 1);
+            Assert.IsFalse(target.IsInRange(start, end));
         }
 
         #endregion
