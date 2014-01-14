@@ -30,6 +30,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <RunCodeAnalysis>true</RunCodeAnalysis>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -63,6 +64,10 @@
     <ProjectReference Include="..\MMLib.Extensions\MMLib.Extensions.csproj">
       <Project>{f355b0c6-7328-41d7-9bfe-e3009705a53e}</Project>
       <Name>MMLib.Extensions</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MMLib\MMLib.Core.csproj">
+      <Project>{dcab5fcb-a6be-44bf-a440-64561101fa3e}</Project>
+      <Name>MMLib.Core</Name>
     </ProjectReference>
   </ItemGroup>
   <Choose>

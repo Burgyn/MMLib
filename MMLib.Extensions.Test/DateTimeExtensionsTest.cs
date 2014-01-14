@@ -1,6 +1,7 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using MMLib.Extensions;
+using MMLib.Core.Providers;
 
 namespace MMLib.Extensions.Test
 {
@@ -184,6 +185,88 @@ namespace MMLib.Extensions.Test
             start = new DateTime(2001, 1, 1, 4, 4, 3);
             end = new DateTime(2004, 2, 1);
             Assert.IsFalse(target.IsInRange(start, end));
+        }
+
+        #endregion
+
+
+        #region Age
+
+        [TestMethod]
+        public void Age_Test()
+        {
+            DateTimeProvider.Default = new FakeDateTime(new DateTime(2014, 1, 14));
+            DateTime birthDay = new DateTime(1985, 8, 23);
+            Assert.AreEqual(28, birthDay.Age());
+
+            birthDay = new DateTime(1986, 8, 23);
+            Assert.AreEqual(27, birthDay.Age());
+
+            birthDay = new DateTime(1985, 1, 15);
+            Assert.AreEqual(28, birthDay.Age());
+
+            birthDay = new DateTime(1985, 1, 14);
+            Assert.AreEqual(29, birthDay.Age());
+
+            birthDay = new DateTime(1985, 1, 13);
+            Assert.AreEqual(29, birthDay.Age());
+
+
+            DateTimeProvider.Default = new FakeDateTime(new DateTime(2000, 2, 28));
+            birthDay = new DateTime(2000, 2, 28);
+            Assert.AreEqual(0, birthDay.Age());
+
+            birthDay = new DateTime(2000, 2, 27);
+            Assert.AreEqual(0, birthDay.Age());
+
+            birthDay = new DateTime(1999, 2, 28);
+            Assert.AreEqual(1, birthDay.Age());
+        }
+
+        #endregion
+
+
+        #region IsToday
+
+        [TestMethod]
+        public void IsToday_TrueTest()
+        {
+            DateTimeProvider.Default = new FakeDateTime(new DateTime(2014, 1, 14));
+            DateTime target = new DateTime(2014, 1, 14);
+            Assert.IsTrue(target.IsToday());
+
+            target = new DateTime(2014, 1, 14, 0, 0, 0, 0);
+            Assert.IsTrue(target.IsToday());
+
+            target = new DateTime(2014, 1, 14, 0, 0, 0, 1);
+            Assert.IsTrue(target.IsToday());
+
+            target = new DateTime(2014, 1, 14, 0, 0, 1, 0);
+            Assert.IsTrue(target.IsToday());
+
+            target = new DateTime(2014, 1, 14, 1, 0, 0, 0);
+            Assert.IsTrue(target.IsToday());
+
+            target = new DateTime(2014, 1, 14, 23, 59, 59, 999);
+            Assert.IsTrue(target.IsToday());
+        }
+
+
+        [TestMethod]
+        public void IsToday_FalseTest()
+        {
+            DateTimeProvider.Default = new FakeDateTime(new DateTime(2014, 1, 14));
+            DateTime target = new DateTime(2014, 1, 15);
+            Assert.IsFalse(target.IsToday());
+
+            target = new DateTime(2014, 1, 16);
+            Assert.IsFalse(target.IsToday());
+
+            target = new DateTime(2014, 1, 15, 0, 0, 0, 1);
+            Assert.IsFalse(target.IsToday());
+
+            target = new DateTime(2014, 1, 13, 23, 59, 59, 999);
+            Assert.IsFalse(target.IsToday());
         }
 
         #endregion

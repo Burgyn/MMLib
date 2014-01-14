@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MMLib.Core.Providers;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics.Contracts;
 using System.Linq;
@@ -52,7 +53,7 @@ namespace MMLib.Extensions
 
 
         /// <summary>
-        /// Determine whether date is date range.
+        /// Determine whether date is in date range.
         /// </summary>
         /// <param name="value">Checked date.</param>
         /// <param name="startDate">Start date.</param>
@@ -70,14 +71,61 @@ namespace MMLib.Extensions
             return value >= startDate && value <= endDate;
         }
 
+
+        /// <summary>
+        /// Get Age by birthDay date.
+        /// </summary>
+        /// <param name="birthDay">Date of birthDay.</param>
+        /// <returns>
+        /// Count of Age from birthDay to Today.
+        /// </returns>
+        public static int Age(this DateTime birthDay)
+        {
+            Contract.Requires(birthDay != null);
+            Contract.Requires(birthDay.Date <= DateTimeProvider.Default.Today);
+            DateTime today = DateTimeProvider.Default.Today;
+            int ret = 0;
+
+            if (birthDay.Date != DateTimeProvider.Default.Today)
+            {
+                if ((today.Month < birthDay.Month || today.Month == birthDay.Month) &&
+                    today.Day < birthDay.Day)
+                {
+                    ret = today.Year - birthDay.Year - 1;
+                }
+                else
+                {
+                    ret = today.Year - birthDay.Year;
+                }
+            }
+
+            return ret;
+        }
+
+
+        /// <summary>
+        /// Determine whether value date is today.
+        /// </summary>
+        /// <param name="value">Checked date.</param>
+        /// <returns>
+        /// true if value is Today, otherwise false.
+        /// </returns>
+        public static bool IsToday(this DateTime value)
+        {
+            Contract.Requires(value != null);
+
+            return value.Date == DateTimeProvider.Default.Today;
+        }
+
         //ToDo: 
-        //Age    
-        //IsToday
-//        GetCountDaysOfMonth
-//GetFirstDayOfMonth
-//GetLastDayOfMonth
-//        GetFirstDayOfWeek, GetLastDayOfWeek
-//GetWeeksWeekday, GetNextWeekday, GetPreviousWeekday
+        //GetCountDaysOfMonth
+        //GetFirstDayOfMonth
+        //GetLastDayOfMonth
+        //GetFirstDayOfWeek
+        //GetLastDayOfWeek
+        //GetWeeksWeekday
+        //GetNextWeekday
+        //GetPreviousWeekday
         //AddWeeks
     }
 }
