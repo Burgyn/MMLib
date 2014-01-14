@@ -7,8 +7,8 @@
     <ProjectGuid>{DCAB5FCB-A6BE-44BF-A440-64561101FA3E}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>MMLib</RootNamespace>
-    <AssemblyName>MMLib</AssemblyName>
+    <RootNamespace>MMLib.Core</RootNamespace>
+    <AssemblyName>MMLib.Core</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <SccProjectName>SAK</SccProjectName>
@@ -44,6 +44,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Providers\DateTimeProvider.cs" />
+    <Compile Include="Providers\FakeDateTime.cs" />
+    <Compile Include="Providers\IDateTimeProvider.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
