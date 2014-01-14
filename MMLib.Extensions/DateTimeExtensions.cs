@@ -71,6 +71,13 @@ namespace MMLib.Extensions
         }
 
         //ToDo: 
-        //Age        
+        //Age    
+        //IsToday
+//        GetCountDaysOfMonth
+//GetFirstDayOfMonth
+//GetLastDayOfMonth
+//        GetFirstDayOfWeek, GetLastDayOfWeek
+//GetWeeksWeekday, GetNextWeekday, GetPreviousWeekday
+        //AddWeeks
     }
 }
