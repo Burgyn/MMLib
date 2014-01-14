@@ -49,6 +49,9 @@
     <Compile Include="Providers\FakeDateTime.cs" />
     <Compile Include="Providers\IDateTimeProvider.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Architecture.pptx" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
