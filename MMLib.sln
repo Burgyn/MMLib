@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Express 2012 for Windows Desktop
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MMLib", "MMLib\MMLib.csproj", "{DCAB5FCB-A6BE-44BF-A440-64561101FA3E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MMLib.Core", "MMLib\MMLib.Core.csproj", "{DCAB5FCB-A6BE-44BF-A440-64561101FA3E}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MMLib.Extensions", "MMLib.Extensions\MMLib.Extensions.csproj", "{F355B0C6-7328-41D7-9BFE-E3009705A53E}"
 EndProject
@@ -13,9 +13,15 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MMLib.RapidPrototyping.Test
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MMLib.Collection", "MMLib.Collection\MMLib.Collection.csproj", "{E473E4DE-0B51-4365-9490-0F98D1C08E6B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MMLib.Collection.Test", "MMLib.Collection.Test\MMLib.Collection.Test.csproj", "{F0C7A445-C618-404F-A6CD-931E3A06EF68}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MMLib.MVVM", "MMLib.MVVM\MMLib.MVVM.csproj", "{AE3DBB55-314B-48B0-8F2E-A93649A560A4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MMLib.Core.Test", "MMLib.Core.Test\MMLib.Core.Test.csproj", "{7B73C9A1-D5A9-487E-B239-61CD2A715314}"
+EndProject
 Global
 	GlobalSection(TeamFoundationVersionControl) = preSolution
-		SccNumberOfProjects = 7
+		SccNumberOfProjects = 10
 		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
 		SccTeamFoundationServer = https://tfs.codeplex.com/tfs/tfs36
 		SccLocalPath0 = .
@@ -31,12 +37,21 @@ Global
 		SccProjectUniqueName4 = MMLib.RapidPrototyping\\MMLib.RapidPrototyping.csproj
 		SccProjectName4 = MMLib.RapidPrototyping
 		SccLocalPath4 = MMLib.RapidPrototyping
-		SccProjectUniqueName5 = MMLib\\MMLib.csproj
-		SccProjectName5 = MMLib
-		SccLocalPath5 = MMLib
-		SccProjectUniqueName6 = MMLib.Collection\\MMLib.Collection.csproj
-		SccProjectName6 = MMLib.Collection
-		SccLocalPath6 = MMLib.Collection
+		SccProjectUniqueName5 = MMLib.Collection\\MMLib.Collection.csproj
+		SccProjectName5 = MMLib.Collection
+		SccLocalPath5 = MMLib.Collection
+		SccProjectUniqueName6 = MMLib.Collection.Test\\MMLib.Collection.Test.csproj
+		SccProjectName6 = MMLib.Collection.Test
+		SccLocalPath6 = MMLib.Collection.Test
+		SccProjectUniqueName7 = MMLib.MVVM\\MMLib.MVVM.csproj
+		SccProjectName7 = MMLib.MVVM
+		SccLocalPath7 = MMLib.MVVM
+		SccProjectUniqueName8 = MMLib\\MMLib.Core.csproj
+		SccProjectName8 = MMLib
+		SccLocalPath8 = MMLib
+		SccProjectUniqueName9 = MMLib.Core.Test\\MMLib.Core.Test.csproj
+		SccProjectName9 = MMLib.Core.Test
+		SccLocalPath9 = MMLib.Core.Test
 	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -67,6 +82,18 @@ Global
 		{E473E4DE-0B51-4365-9490-0F98D1C08E6B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E473E4DE-0B51-4365-9490-0F98D1C08E6B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E473E4DE-0B51-4365-9490-0F98D1C08E6B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F0C7A445-C618-404F-A6CD-931E3A06EF68}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F0C7A445-C618-404F-A6CD-931E3A06EF68}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F0C7A445-C618-404F-A6CD-931E3A06EF68}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F0C7A445-C618-404F-A6CD-931E3A06EF68}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AE3DBB55-314B-48B0-8F2E-A93649A560A4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AE3DBB55-314B-48B0-8F2E-A93649A560A4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AE3DBB55-314B-48B0-8F2E-A93649A560A4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AE3DBB55-314B-48B0-8F2E-A93649A560A4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7B73C9A1-D5A9-487E-B239-61CD2A715314}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7B73C9A1-D5A9-487E-B239-61CD2A715314}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7B73C9A1-D5A9-487E-B239-61CD2A715314}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7B73C9A1-D5A9-487E-B239-61CD2A715314}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

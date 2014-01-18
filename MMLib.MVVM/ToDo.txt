@@ -1,0 +1,9 @@
+﻿ToDo:
+NotificationObject aj testy
+RelayCommand aj testy
+ViewModelBase aj testy
+ObservableCollection aj testy
+Snippety
+pridat tam Unity asi
+Validacia
+

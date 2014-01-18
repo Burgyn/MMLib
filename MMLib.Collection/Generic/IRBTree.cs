@@ -11,7 +11,7 @@ namespace MMLib.Collection.Generic
     /// </summary>
     /// <typeparam name="TKey">The type of keys in the tree.</typeparam>
     /// <typeparam name="TValue">The type of values in the tree.</typeparam>
-    public interface IRBTree<TKey, TValue> : IDictionary<TKey, TValue>
+    public interface IRBTree<TKey, TValue> : IDictionary<TKey, TValue> where TKey : IComparable<TKey>
     {
     }
 }
