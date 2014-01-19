@@ -19,9 +19,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MMLib.MVVM", "MMLib.MVVM\MM
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MMLib.Core.Test", "MMLib.Core.Test\MMLib.Core.Test.csproj", "{7B73C9A1-D5A9-487E-B239-61CD2A715314}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MMLib.MVVM.Test", "MMLib.MVVM.Test\MMLib.MVVM.Test.csproj", "{634F1205-3360-49E2-AE12-13C385FDF749}"
+EndProject
 Global
 	GlobalSection(TeamFoundationVersionControl) = preSolution
-		SccNumberOfProjects = 10
+		SccNumberOfProjects = 11
 		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
 		SccTeamFoundationServer = https://tfs.codeplex.com/tfs/tfs36
 		SccLocalPath0 = .
@@ -52,6 +54,9 @@ Global
 		SccProjectUniqueName9 = MMLib.Core.Test\\MMLib.Core.Test.csproj
 		SccProjectName9 = MMLib.Core.Test
 		SccLocalPath9 = MMLib.Core.Test
+		SccProjectUniqueName10 = MMLib.MVVM.Test\\MMLib.MVVM.Test.csproj
+		SccProjectName10 = MMLib.MVVM.Test
+		SccLocalPath10 = MMLib.MVVM.Test
 	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -94,6 +99,10 @@ Global
 		{7B73C9A1-D5A9-487E-B239-61CD2A715314}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7B73C9A1-D5A9-487E-B239-61CD2A715314}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7B73C9A1-D5A9-487E-B239-61CD2A715314}.Release|Any CPU.Build.0 = Release|Any CPU
+		{634F1205-3360-49E2-AE12-13C385FDF749}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{634F1205-3360-49E2-AE12-13C385FDF749}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{634F1205-3360-49E2-AE12-13C385FDF749}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{634F1205-3360-49E2-AE12-13C385FDF749}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
