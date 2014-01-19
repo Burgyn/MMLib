@@ -8,7 +8,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyTitle("MMLib")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("HP")]
+[assembly: AssemblyCompany("Mino Martiniak")]
 [assembly: AssemblyProduct("MMLib")]
 [assembly: AssemblyCopyright("Copyright © HP 2013")]
 [assembly: AssemblyTrademark("")]

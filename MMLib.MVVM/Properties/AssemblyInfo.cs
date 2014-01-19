@@ -6,9 +6,9 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("MMLib.MVVM")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("Library which contains helpers for MVVM pattern")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("HP")]
+[assembly: AssemblyCompany("Mino Martiniak")]
 [assembly: AssemblyProduct("MMLib.MVVM")]
 [assembly: AssemblyCopyright("Copyright © HP 2014")]
 [assembly: AssemblyTrademark("")]
