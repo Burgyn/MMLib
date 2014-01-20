@@ -16,7 +16,7 @@ namespace MMLib.MVVM.Base
 
         #region Private Constants
 
-        private const string PROPERT_SET_PREFIX = "set_"; 
+        private const string PROPERT_SET_PREFIX = "set_";
 
         #endregion
 
@@ -34,11 +34,6 @@ namespace MMLib.MVVM.Base
         /// <param name="propertyName">The name of property which was changed.</param>
         protected virtual void OnPropertyChanged(string propertyName = null)
         {
-            if (propertyName == null)
-            {
-                propertyName = new StackFrame(1, true).GetMethod().Name;
-                propertyName = CheckAndCorrectPropertyName(propertyName);
-            }
             this.VerifyPropertyName(propertyName);
             PropertyChangedEventHandler handler = this.PropertyChanged;
             if (handler != null)
@@ -52,7 +47,7 @@ namespace MMLib.MVVM.Base
         /// Raise PropertyChanged event.
         /// </summary>
         /// <param name="propertyName">The name of property which was changed.</param>
-        protected virtual void OnPropertyChanged<T>(Expression<Func<T>> exp)
+        protected void OnPropertyChanged<T>(Expression<Func<T>> exp)
         {
             MemberExpression memberExpression = (MemberExpression)exp.Body;
             string propertyName = memberExpression.Member.Name;
@@ -78,7 +73,7 @@ namespace MMLib.MVVM.Base
             }
         }
 
-        #endregion     
+        #endregion
 
 
         #region Private fields
@@ -90,7 +85,7 @@ namespace MMLib.MVVM.Base
                 propertyName = propertyName.Replace(PROPERT_SET_PREFIX, "");
             }
             return propertyName;
-        } 
+        }
 
         #endregion
     }

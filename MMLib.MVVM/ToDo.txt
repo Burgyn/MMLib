@@ -3,7 +3,6 @@ NotificationObject aj testy
 ViewModelBase aj testy
 ObservableCollection aj testy
 Snippety (RC,RCC, PRO, ProOnDemand)
-pridat tam Unity asi
 Validacia
 Serializovanie do XML elementu a spat na modely
 nejaka podpora async pre upozornovanie UI aby sa zasedilo alebo nieco mozno nejaky progressbar.

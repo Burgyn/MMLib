@@ -56,6 +56,7 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="Base\FakeNotificationObject.cs" />
     <Compile Include="Base\NotificationObjectTest.cs" />
     <Compile Include="Command\RelayCommandTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

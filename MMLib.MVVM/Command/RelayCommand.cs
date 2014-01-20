@@ -91,7 +91,6 @@ namespace MMLib.MVVM.Command
 
         #region Protected
 
-
         /// <summary>
         /// Defines the method to be called when the command is invoked.
         /// </summary>
