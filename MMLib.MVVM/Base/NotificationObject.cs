@@ -32,7 +32,7 @@ namespace MMLib.MVVM.Base
         /// Raise PropertyChanged event.
         /// </summary>
         /// <param name="propertyName">The name of property which was changed.</param>
-        protected virtual void OnPropertyChanged(string propertyName = null)
+        protected virtual void OnPropertyChanged(string propertyName)
         {
             this.VerifyPropertyName(propertyName);
             PropertyChangedEventHandler handler = this.PropertyChanged;
@@ -57,6 +57,27 @@ namespace MMLib.MVVM.Base
 
         #endregion INotifyPropertyChanged Members
 
+        #region Protected methods
+
+        /// <summary>
+        /// Set property value to field.
+        /// </summary>
+        /// <typeparam name="T">Type of property.</typeparam>
+        /// <param name="propertyExpression">Property expression for getting property name.</param>
+        /// <param name="field">Field of property.</param>
+        /// <param name="newValue">New value.</param>
+        protected virtual void SetPropertyValue<T>(Expression<Func<T>> propertyExpression,
+                                                                 ref T field,
+                                                                     T newValue)
+        {
+            if (!EqualityComparer<T>.Default.Equals(field, newValue))
+            {
+                field = newValue;
+                OnPropertyChanged(propertyExpression);
+            }
+        }
+
+        #endregion
 
         #region Debugging Aides
 
@@ -76,7 +97,7 @@ namespace MMLib.MVVM.Base
         #endregion
 
 
-        #region Private fields
+        #region Private helpers
 
         private string CheckAndCorrectPropertyName(string propertyName)
         {

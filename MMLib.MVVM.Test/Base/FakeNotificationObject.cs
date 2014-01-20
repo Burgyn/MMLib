@@ -14,6 +14,7 @@ namespace MMLib.MVVM.Test.Base
         private string _propertyName = string.Empty;
         private int _propertyLambda = 0;
         private object _propertyWithout = null;
+        private string _propertySetP = string.Empty;
 
         /// <summary>
         /// Property which call OnPropertyChange with string parameter.
@@ -50,5 +51,16 @@ namespace MMLib.MVVM.Test.Base
             }
         }
 
+        /// <summary>
+        /// Property which use SetPropertyValue method.
+        /// </summary>
+        public string PropertySetP
+        {
+            get { return _propertySetP; }
+            set
+            {
+                SetPropertyValue<string>(() => PropertySetP, ref _propertySetP, value);
+            }
+        }
     }
 }

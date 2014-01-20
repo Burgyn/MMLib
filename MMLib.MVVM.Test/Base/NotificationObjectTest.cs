@@ -38,5 +38,30 @@ namespace MMLib.MVVM.Test.Base
             Assert.AreEqual("PropertyLambda", propertyName);
             Assert.AreEqual(10, target.PropertyLambda);
         }
+
+        [TestMethod]
+        public void OnPropertyChange_SetPropertyValueTest()
+        {
+            FakeNotificationObject target = new FakeNotificationObject();
+            string propertyName = string.Empty;
+            target.PropertyChanged += (a, b) =>
+            {
+                propertyName = b.PropertyName;
+            };
+
+            target.PropertySetP = "Test";
+            Assert.AreEqual("PropertySetP", propertyName);
+            Assert.AreEqual("Test", target.PropertySetP);
+
+            propertyName = string.Empty;
+            target.PropertySetP = "Test";
+
+            Assert.AreEqual(string.Empty, propertyName);
+            Assert.AreEqual("Test", target.PropertySetP);
+
+            target.PropertySetP = null;
+            Assert.AreEqual("PropertySetP", propertyName);
+            Assert.IsNull(target.PropertySetP);
+        }
     }
 }
