@@ -33,6 +33,7 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <DocumentationFile>..\Documentations\MMLib.MVVM.XML</DocumentationFile>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="PresentationCore" />
@@ -51,6 +52,16 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="ToDo.txt" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <None Include="Snippets\Property.snippet" />
+    <None Include="Snippets\PublicMethodsRegion.snippet" />
+    <None Include="Snippets\PublicPrivateFieldsRegion.snippet" />
+    <None Include="Snippets\PublicPrivateHelpersRegion.snippet" />
+    <None Include="Snippets\PublicPropertiesRegion.snippet" />
+    <None Include="Snippets\Region.snippet" />
+    <None Include="Snippets\RelayCommand.snippet" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

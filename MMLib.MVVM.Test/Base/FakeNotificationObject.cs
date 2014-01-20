@@ -1,8 +1,10 @@
 ﻿using MMLib.MVVM.Base;
+using MMLib.MVVM.Command;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Windows.Input;
 
 namespace MMLib.MVVM.Test.Base
 {
@@ -61,6 +63,6 @@ namespace MMLib.MVVM.Test.Base
             {
                 SetPropertyValue<string>(() => PropertySetP, ref _propertySetP, value);
             }
-        }
+        }        
     }
 }

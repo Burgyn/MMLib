@@ -55,7 +55,7 @@ namespace MMLib.MVVM.Base
             OnPropertyChanged(propertyName);
         }
 
-        #endregion INotifyPropertyChanged Members
+        #endregion
 
         #region Protected methods
 
