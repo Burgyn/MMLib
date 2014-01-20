@@ -46,7 +46,7 @@ namespace MMLib.MVVM.Base
         /// <summary>        
         /// Raise PropertyChanged event.
         /// </summary>
-        /// <param name="propertyName">The name of property which was changed.</param>
+        /// <param name="exp">The name of property which was changed.</param>
         protected void OnPropertyChanged<T>(Expression<Func<T>> exp)
         {
             MemberExpression memberExpression = (MemberExpression)exp.Body;

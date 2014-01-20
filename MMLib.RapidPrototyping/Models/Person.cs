@@ -27,6 +27,10 @@ namespace MMLib.RapidPrototyping.Models
         public string Mail { get; set; }
 
 
+        /// <summary>
+        /// Returns a string that represents the current object.
+        /// </summary>
+        /// <returns>Returns a string that represents the current object.</returns>
         public override string ToString()
         {
             return string.Format("{0} {1} {2}", FirstName, LastName, Mail);

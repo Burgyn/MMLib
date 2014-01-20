@@ -14,7 +14,7 @@ namespace MMLib.RapidPrototyping.Generators.Repositories
         /// <summary>
         /// Word indexer. Get word by index.
         /// </summary>
-        /// <param name="iIndex">Index of word</param>
+        /// <param name="index">Index of word</param>
         /// <returns>Word</returns>
         string this[int index] { get; }
 

@@ -15,7 +15,6 @@ namespace MMLib.MVVM.Test.Base
     {
         private string _propertyName = string.Empty;
         private int _propertyLambda = 0;
-        private object _propertyWithout = null;
         private string _propertySetP = string.Empty;
 
         /// <summary>

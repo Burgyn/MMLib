@@ -22,11 +22,13 @@ namespace MMLib.RapidPrototyping.Generators.Repositories
 
 
         #region Constructor
-
+        /// <summary>
+        /// Constructor
+        /// </summary>
         public WordRepository()
             : this(Properties.Resources.english_words_lowercase)
         {
-           
+
         }
 
 
