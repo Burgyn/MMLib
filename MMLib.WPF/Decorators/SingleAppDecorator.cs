@@ -44,7 +44,14 @@ namespace MMLib.WPF.Decorators
             {
                 _application.Windows[0].WindowState = WindowState.Normal;
             }
-            _application.Windows[0].Activate();
+            if (_application.Windows[0].Visibility == Visibility.Hidden)
+            {
+                _application.Windows[0].Show();
+            }
+            else
+            {
+                _application.Windows[0].Activate();
+            }
         }
 
         #endregion
