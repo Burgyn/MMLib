@@ -1,6 +1,7 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using MMLib.Core.Providers;
+using MMLib.Core.Providers.Fakes;
 
 namespace MMLib.Core.Test.Providers
 {

@@ -2,6 +2,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using MMLib.Extensions;
 using MMLib.Core.Providers;
+using MMLib.Core.Providers.Fakes;
 
 namespace MMLib.Extensions.Test
 {

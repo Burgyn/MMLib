@@ -46,7 +46,8 @@
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Providers\DateTimeProvider.cs" />
-    <Compile Include="Providers\FakeDateTime.cs" />
+    <Compile Include="Providers\Fakes\FakeDateTime.cs" />
+    <Compile Include="Providers\Fakes\FakeProcessProvider.cs" />
     <Compile Include="Providers\IDateTimeProvider.cs" />
     <Compile Include="Providers\IProcessProvider.cs" />
     <Compile Include="Providers\ProcessProvider.cs" />

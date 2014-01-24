@@ -55,6 +55,6 @@ namespace MMLib.Core.Providers
         /// <exception cref="NotSupportedException">The process is not on this computer.</exception>
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         [MonitoringDescription("ProcessProcessName")]
-        public string ProcessName { get; }
+        string ProcessName { get; }
     }
 }

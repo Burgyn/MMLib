@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MMLib.Core.Providers
+namespace MMLib.Core.Providers.Fakes
 {
     /// <summary>
     /// Fake DateTimeProvider for defined Now and Today.
