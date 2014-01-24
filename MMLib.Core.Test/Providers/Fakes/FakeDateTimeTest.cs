@@ -3,7 +3,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using MMLib.Core.Providers;
 using MMLib.Core.Providers.Fakes;
 
-namespace MMLib.Core.Test.Providers
+namespace MMLib.Core.Test.Providers.Fakes
 {
     [TestClass]
     public class FakeDateTimeTest

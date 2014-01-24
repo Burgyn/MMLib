@@ -56,7 +56,9 @@
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Providers\DateTimeProviderTest.cs" />
-    <Compile Include="Providers\FakeDateTimeTest.cs" />
+    <Compile Include="Providers\Fakes\FakeDateTimeTest.cs" />
+    <Compile Include="Providers\Fakes\FakeProcessProviderTest.cs" />
+    <Compile Include="Providers\ProcessProviderTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MMLib\MMLib.Core.csproj">
