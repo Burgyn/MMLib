@@ -33,6 +33,26 @@ namespace MMLib.Core.Providers
         #region Public properties
 
         /// <summary>
+        /// Gets the unique identifier for the associated process
+        /// </summary>
+        /// <exception cref="System.InvalidOperationException">
+        ///  The process's System.Diagnostics.Process.Id property has not been set.-or-
+        ///  There is no process associated with this System.Diagnostics.Process object.
+        /// </exception>
+        /// <exception cref="System.PlatformNotSupportedException">
+        /// The platform is Windows 98 or Windows Millennium Edition (Windows Me); set
+        /// System.Diagnostics.ProcessStartInfo.UseShellExecute to false to access this
+        /// property on Windows 98 and Windows Me.
+        /// </exception>
+        public int Id
+        {
+            get
+            {
+                return _currentProcess.Id;
+            }
+        }
+
+        /// <summary>
         /// Gets the full path to the main module.
         /// </summary>
         public string MainModuleFileName

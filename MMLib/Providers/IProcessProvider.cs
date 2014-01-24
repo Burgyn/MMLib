@@ -13,14 +13,18 @@ namespace MMLib.Core.Providers
     public interface IProcessProvider
     {
         /// <summary>
-        /// Gets new IProcessProvider which represent System.Diagnostics.Process component 
-        /// associated with the currently active process.
+        /// Gets the unique identifier for the associated process
         /// </summary>
-        /// <returns>
-        /// New IProcessProvider which represent System.Diagnostics.Process component 
-        /// associated with the currently active process
-        /// </returns>
-        IProcessProvider GetCurrentProcess();
+        /// <exception cref="System.InvalidOperationException">
+        ///  The process's System.Diagnostics.Process.Id property has not been set.-or-
+        ///  There is no process associated with this System.Diagnostics.Process object.
+        /// </exception>
+        /// <exception cref="System.PlatformNotSupportedException">
+        /// The platform is Windows 98 or Windows Millennium Edition (Windows Me); set
+        /// System.Diagnostics.ProcessStartInfo.UseShellExecute to false to access this
+        /// property on Windows 98 and Windows Me.
+        /// </exception>
+        int Id { get; }
 
         /// <summary>
         /// Gets the full path to the main module.
@@ -39,6 +43,16 @@ namespace MMLib.Core.Providers
         /// specified process name.
         /// </returns>
         IProcessProvider[] GetProcessesByName(string processName);
+
+        /// <summary>
+        /// Gets new IProcessProvider which represent System.Diagnostics.Process component 
+        /// associated with the currently active process.
+        /// </summary>
+        /// <returns>
+        /// New IProcessProvider which represent System.Diagnostics.Process component 
+        /// associated with the currently active process
+        /// </returns>
+        IProcessProvider GetCurrentProcess();
 
         /// <summary>
         /// Gets the name that the system uses to identify the process to the user.

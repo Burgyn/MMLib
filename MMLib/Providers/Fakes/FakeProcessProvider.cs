@@ -28,6 +28,11 @@ namespace MMLib.Core.Providers.Fakes
         #region Public properties
 
         /// <summary>
+        /// Gets the unique identifier for the associated process
+        /// </summary>        
+        public int Id { get; set; }
+
+        /// <summary>
         /// Gets the full path to the main module.
         /// </summary>
         public string MainModuleFileName
