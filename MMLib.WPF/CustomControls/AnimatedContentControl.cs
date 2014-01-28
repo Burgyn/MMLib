@@ -30,12 +30,18 @@ namespace MMLib.WPF.CustomControls
 
         static AnimatedContentControl()
         {
+            SlideDirection = SlidingDirection.FromRightToLeft;
             DefaultStyleKeyProperty.OverrideMetadata(typeof(AnimatedContentControl), new FrameworkPropertyMetadata(typeof(AnimatedContentControl)));
         }
 
         #endregion
 
         #region Public properties
+
+        /// <summary>
+        /// Direction of content animate.
+        /// </summary>
+        public static AnimatedContentControl.SlidingDirection SlideDirection { get; set; }
 
         /// <summary>
         /// Animation Amplitude
@@ -117,21 +123,20 @@ namespace MMLib.WPF.CustomControls
             _mainContent.RenderTransform = newContentTransform;
             _paintArea.Visibility = Visibility.Visible;
 
-            newContentTransform.BeginAnimation(TranslateTransform.XProperty, CreateAnimation(this.ActualWidth, 0));
-            oldContentTransform.BeginAnimation(TranslateTransform.XProperty, CreateAnimation(0, -this.ActualWidth, (s, e) => _paintArea.Visibility = Visibility.Hidden));
+            newContentTransform.BeginAnimation(TranslateTransform.XProperty, CreateAnimation(DirectionForNewContent()));
+            oldContentTransform.BeginAnimation(TranslateTransform.XProperty, CreateAnimation(DirectionForOldContent(),
+                (s, e) => _paintArea.Visibility = Visibility.Hidden));
         }
 
         /// <summary>
         /// Creates the animation that moves content in or out of view.
         /// </summary>
-        /// <param name="from">The starting value of the animation.</param>
-        /// <param name="to">The end value of the animation.</param>
         /// <param name="whenDone">(optional) A callback that will be called when the animation has completed.</param>
-        private AnimationTimeline CreateAnimation(double from, double to, EventHandler whenDone = null)
+        private AnimationTimeline CreateAnimation(FromTo fromTo, EventHandler whenDone = null)
         {
             IEasingFunction ease = new BackEase { Amplitude = Amplitude, EasingMode = EasingMode.EaseOut };
             var duration = new Duration(TimeSpan.FromSeconds(Duration));
-            var anim = new DoubleAnimation(from, to, duration) { EasingFunction = ease };
+            var anim = new DoubleAnimation(fromTo.From, fromTo.To, duration) { EasingFunction = ease };
             if (whenDone != null)
                 anim.Completed += whenDone;
             anim.Freeze();
@@ -151,6 +156,63 @@ namespace MMLib.WPF.CustomControls
             var brush = new ImageBrush(target);
             brush.Freeze();
             return brush;
+        }
+
+        private FromTo DirectionForNewContent()
+        {
+            FromTo ret = null;
+
+            if (AnimatedContentControl.SlideDirection == SlidingDirection.FromRightToLeft)
+            {
+                ret = new FromTo() { From = this.ActualWidth, To = 0 };
+            }
+            else
+            {
+                ret = new FromTo() { From = -this.ActualWidth, To =  0};
+            }
+
+            return ret;
+        }
+
+        private FromTo DirectionForOldContent()
+        {
+            FromTo ret = null;
+
+            if (AnimatedContentControl.SlideDirection == SlidingDirection.FromRightToLeft)
+            {
+                ret = new FromTo() { From = 0, To = -this.ActualWidth };
+            }
+            else
+            {
+                ret = new FromTo() { From = 0, To = this.ActualWidth };
+            }
+
+            return ret;
+        }
+
+        #endregion
+
+        #region Helpers
+
+        private class FromTo
+        {
+            public double From { get; set; }
+            public double To { get; set; }
+        }
+
+        /// <summary>
+        /// Enum represent direction of content animation.
+        /// </summary>
+        public enum SlidingDirection
+        {
+            /// <summary>
+            /// Animate from left to right.
+            /// </summary>
+            FromLeftToRight,
+            /// <summary>
+            /// Animate from right to left.
+            /// </summary>
+            FromRightToLeft,
         }
 
         #endregion
