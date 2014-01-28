@@ -38,10 +38,27 @@ namespace MMLib.WPF.CustomControls
         #region Public properties
 
         /// <summary>
+        /// Animation Amplitude
+        /// </summary>
+        public static readonly DependencyProperty AmplitudeProperty = DependencyProperty.Register(
+          "Amplitude", typeof(double), typeof(AnimatedContentControl), new PropertyMetadata(0.5));
+
+        /// <summary>
+        /// Animation durration
+        /// </summary>
+        [Description("Amplitude of the animation")]
+        [Category("MMLib.WPF")]
+        public double Amplitude
+        {
+            get { return (double)this.GetValue(AmplitudeProperty); }
+            set { this.SetValue(AmplitudeProperty, value); }
+        }
+
+        /// <summary>
         /// Animation durration
         /// </summary>
         public static readonly DependencyProperty DurationProperty = DependencyProperty.Register(
-          "Duration", typeof(double), typeof(AnimatedContentControl), new PropertyMetadata(0.5M));
+          "Duration", typeof(double), typeof(AnimatedContentControl), new PropertyMetadata(0.5));
 
         /// <summary>
         /// Animation durration
@@ -112,7 +129,7 @@ namespace MMLib.WPF.CustomControls
         /// <param name="whenDone">(optional) A callback that will be called when the animation has completed.</param>
         private AnimationTimeline CreateAnimation(double from, double to, EventHandler whenDone = null)
         {
-            IEasingFunction ease = new BackEase { Amplitude = Duration, EasingMode = EasingMode.EaseOut };
+            IEasingFunction ease = new BackEase { Amplitude = Amplitude, EasingMode = EasingMode.EaseOut };
             var duration = new Duration(TimeSpan.FromSeconds(Duration));
             var anim = new DoubleAnimation(from, to, duration) { EasingFunction = ease };
             if (whenDone != null)
