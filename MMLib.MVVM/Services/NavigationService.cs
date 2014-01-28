@@ -45,6 +45,15 @@ namespace MMLib.MVVM.Services
 
         #endregion
 
+        #region Public properties
+
+        /// <summary>
+        /// Default navigation services
+        /// </summary>
+        public static INavigationService Default { get; set; }
+
+        #endregion
+
         #region Public methods
 
         /// <summary>
@@ -62,7 +71,7 @@ namespace MMLib.MVVM.Services
         /// Navigate to target content.
         /// </summary>
         /// <param name="target">Navigate to new target appliaction content.</param>
-        public void NavigateTo(IAppContent target)
+        public virtual void NavigateTo(IAppContent target)
         {
             Contract.Requires(target != null);
 
