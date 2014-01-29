@@ -68,11 +68,15 @@
     <Compile Include="Base\FakeNotificationObject.cs" />
     <Compile Include="Base\NotificationObjectTest.cs" />
     <Compile Include="Command\RelayCommandTest.cs" />
+    <Compile Include="Model\TestClasses\ITestModel.cs" />
+    <Compile Include="Model\TestClasses\TestModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\ContainerBootstrapper.cs" />
     <Compile Include="Services\Fakes\FakeAppContent.cs" />
     <Compile Include="Services\NavigationServiceTest.cs" />
     <Compile Include="ViewModel\AppMainViewModelTest.cs" />
+    <Compile Include="ViewModel\TestClasses\TestModelViewModel.cs" />
+    <Compile Include="ViewModel\WrapperReflectionHelperTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MMLib.MVVM\MMLib.MVVM.csproj">
