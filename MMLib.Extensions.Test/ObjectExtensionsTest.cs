@@ -30,7 +30,7 @@ namespace MMLib.Extensions.Test
         }
 
         [TestMethod]
-        public void GetPropertyValue_Test()
+        public void GetPropertyValue_GenericTest()
         {
             DateTime now = DateTime.Now;
 
@@ -46,6 +46,25 @@ namespace MMLib.Extensions.Test
             Assert.AreEqual(14, target.GetPropertyValue<double>("DoubleValue"));
             Assert.AreEqual(11, target.GetPropertyValue<int>("IntValue"));
             Assert.AreEqual("Hello", target.GetPropertyValue<string>("StringValue"));
+        }
+
+        [TestMethod]
+        public void GetPropertyValue_Test()
+        {
+            DateTime now = DateTime.Now;
+
+            TestClass target = new TestClass()
+            {
+                DateTimeValue = now,
+                DoubleValue = 14,
+                IntValue = 11,
+                StringValue = "Hello"
+            };
+
+            Assert.AreEqual(now, target.GetPropertyValue("DateTimeValue"));
+            Assert.AreEqual(14, (double)target.GetPropertyValue("DoubleValue"));
+            Assert.AreEqual(11, (int)target.GetPropertyValue("IntValue"));
+            Assert.AreEqual("Hello", target.GetPropertyValue("StringValue"));
         }
 
         [TestMethod]
