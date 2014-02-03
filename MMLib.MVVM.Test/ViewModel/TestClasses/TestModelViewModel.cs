@@ -7,7 +7,7 @@ using System.Text;
 
 namespace MMLib.MVVM.Test.ViewModel.TestClasses
 {
-    public class TestModelViewModel : IModelWrapperViewModel<TestModel>, ITestModel
+    public class TestModelViewModel : ITestModel
     {
         public string StringValue { get; set; }
 

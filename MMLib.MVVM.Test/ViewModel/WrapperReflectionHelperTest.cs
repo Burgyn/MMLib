@@ -24,12 +24,11 @@ namespace MMLib.MVVM.Test.ViewModel
             };
             TestModelViewModel viewModel = new TestModelViewModel();
 
-            var target = new WrapperReflectionHelper<TestModel>(model, viewModel);
+            var target = new WrapperReflectionHelper(model, viewModel);
             Assert.IsNull(viewModel.Model);
 
             target.WrappeModelToViewModel();
 
-            Assert.AreEqual(model, viewModel.Model);
             Assert.AreEqual(model.DateTimeValue, viewModel.DateTimeValue);
             Assert.AreEqual(model.DoubleValue, viewModel.DoubleValue);
             Assert.AreEqual(model.StringValue, viewModel.StringValue);
@@ -43,7 +42,7 @@ namespace MMLib.MVVM.Test.ViewModel
             TestModel model = new TestModel();
             TestModelViewModel viewModel = new TestModelViewModel();
 
-            var target = new WrapperReflectionHelper<TestModel>(model, viewModel);
+            var target = new WrapperReflectionHelper(model, viewModel);
 
             viewModel.DoubleValue = 12;
             viewModel.StringValue = "Mino";

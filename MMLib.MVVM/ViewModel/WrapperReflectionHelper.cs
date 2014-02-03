@@ -12,13 +12,12 @@ namespace MMLib.MVVM.ViewModel
     /// <summary>
     /// Class which help with reflection for model helper.
     /// </summary>
-    /// <typeparam name="TModel">Model, which help wrapped.</typeparam>
-    public class WrapperReflectionHelper<TModel> where TModel : IModel
+    public class WrapperReflectionHelper
     {
         #region Private fields
 
-        private TModel _model;
-        private IModelWrapperViewModel<TModel> _viewModel;
+        private object _model;
+        private object _viewModel;
 
         #endregion
 
@@ -29,7 +28,7 @@ namespace MMLib.MVVM.ViewModel
         /// </summary>
         /// <param name="model">Model, which will be wrapped to viewModel.</param>
         /// <param name="viewModel">ViewModel, which wrapped model.</param>
-        public WrapperReflectionHelper(TModel model, IModelWrapperViewModel<TModel> viewModel)
+        public WrapperReflectionHelper(object model, object viewModel)
         {
             Contract.Requires(model != null);
             Contract.Requires(viewModel != null);
@@ -47,8 +46,6 @@ namespace MMLib.MVVM.ViewModel
         /// </summary>       
         public void WrappeModelToViewModel()
         {
-            _viewModel.Model = _model;
-
             var properties = _model.GetType().GetProperties(BindingFlags.Instance | BindingFlags.Public).Where(p =>
             {
                 return p.CanRead && p.CanWrite && p.GetCustomAttributes(typeof(NonWrappedAttribute), false).Length == 0;
@@ -65,8 +62,6 @@ namespace MMLib.MVVM.ViewModel
         /// </summary>
         public void SaveChangesToModel()
         {
-            _viewModel.Model = _model;
-
             var properties = _model.GetType().GetProperties(BindingFlags.Instance | BindingFlags.Public).Where(p =>
             {
                 return p.CanRead && p.CanWrite && p.GetCustomAttributes(typeof(NonWrappedAttribute), false).Length == 0;

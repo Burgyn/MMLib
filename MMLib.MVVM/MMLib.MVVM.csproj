@@ -77,7 +77,6 @@
     <Compile Include="ViewModel\BaseViewModel.cs" />
     <Compile Include="ViewModel\IAppContent.cs" />
     <Compile Include="ViewModel\IAppMainViewModel.cs" />
-    <Compile Include="ViewModel\IModelWrapperViewModel.cs" />
     <Compile Include="ViewModel\WrapperReflectionHelper.cs" />
   </ItemGroup>
   <ItemGroup>
