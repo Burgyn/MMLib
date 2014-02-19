@@ -24,5 +24,16 @@ namespace WPFDemoApp
         {
             InitializeComponent();
         }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            dt0.DateTime = DateTime.Now;
+            dt1.DateTime = DateTime.Now.AddMinutes(-1);
+            dt2.DateTime = DateTime.Now.AddMinutes(-2);
+            dt3.DateTime = DateTime.Now.AddMinutes(-3);
+            dt4.DateTime = DateTime.Now.AddMinutes(-5);
+            dt5.DateTime = DateTime.Now.AddHours(-1);
+            dt6.DateTime = DateTime.Now.AddDays(-1);
+        }
     }
 }
