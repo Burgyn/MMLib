@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Diagnostics.Contracts;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 
@@ -116,6 +117,41 @@ namespace MMLib.Extensions
 
             return value.Date == DateTimeProvider.Default.Today;
         }
+
+        /// <summary>
+        /// Determine whether firstDate and secondDate are in the same week. 
+        /// </summary>
+        /// <param name="firstDate">First checking date.</param>
+        /// <param name="secondDate">Second checking date.</param>
+        /// <returns>
+        /// true if first and second date are from the same week, otherwise false.
+        /// </returns>
+        public static bool AreInTheSameWeek(this DateTime firstDate, DateTime secondDate)
+        {
+            Contract.Requires(firstDate != null);
+            Contract.Requires(secondDate != null);
+
+            return firstDate.GetIso8601WeekOfYear() == secondDate.GetIso8601WeekOfYear();
+        }
+
+
+        #region Private helpers
+
+        // This presumes that weeks start with Monday.
+        // Week 1 is the 1st week of the year with a Thursday in it.
+        private static int GetIso8601WeekOfYear(this DateTime time)
+        {
+            DayOfWeek day = CultureInfo.InvariantCulture.Calendar.GetDayOfWeek(time);
+            if (day >= DayOfWeek.Monday && day <= DayOfWeek.Wednesday)
+            {
+                time = time.AddDays(3);
+            }
+
+            return CultureInfo.InvariantCulture.Calendar.GetWeekOfYear(time,
+                CalendarWeekRule.FirstFourDayWeek, CultureInfo.CurrentCulture.DateTimeFormat.FirstDayOfWeek);
+        } 
+
+        #endregion
 
         //ToDo: 
         //GetCountDaysOfMonth

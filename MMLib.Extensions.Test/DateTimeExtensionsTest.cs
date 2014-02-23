@@ -226,7 +226,6 @@ namespace MMLib.Extensions.Test
 
         #endregion
 
-
         #region IsToday
 
         [TestMethod]
@@ -268,6 +267,59 @@ namespace MMLib.Extensions.Test
 
             target = new DateTime(2014, 1, 13, 23, 59, 59, 999);
             Assert.IsFalse(target.IsToday());
+        }
+
+        #endregion
+
+        #region AreInTheSameWeek
+
+        [TestMethod]
+        public void AreInTheSameWeek_TrueTest()
+        {
+            DateTime first = new DateTime(2014, 2, 23);
+            DateTime second = new DateTime(2014, 2, 22);
+
+            Assert.IsTrue(first.AreInTheSameWeek(second));
+
+            second = new DateTime(2014, 2, 20);
+            Assert.IsTrue(first.AreInTheSameWeek(second));
+
+            second = new DateTime(2014, 2, 17);
+            Assert.IsTrue(first.AreInTheSameWeek(second));
+
+            first = new DateTime(2014, 2, 24);
+            second = new DateTime(2014, 3, 2);
+            Assert.IsTrue(first.AreInTheSameWeek(second));
+
+            first = new DateTime(2014, 12, 24);
+            second = new DateTime(2014, 12, 24);
+            Assert.IsTrue(first.AreInTheSameWeek(second));
+
+            first = new DateTime(2014, 12, 24);
+            second = new DateTime(2014, 12, 25);
+            Assert.IsTrue(first.AreInTheSameWeek(second));
+
+            first = new DateTime(2014, 12, 29);
+            second = new DateTime(2015, 1, 1);
+            Assert.IsTrue(first.AreInTheSameWeek(second));
+            
+            first = new DateTime(2014, 12, 29);
+            second = new DateTime(2015, 1, 4);
+            Assert.IsTrue(first.AreInTheSameWeek(second));
+        }
+
+
+        [TestMethod]
+        public void AreInTheSameWeek_FalseTest()
+        {
+            DateTime first = new DateTime(2014, 2, 23);
+            DateTime second = new DateTime(2014, 2, 24);
+
+            Assert.IsFalse(first.AreInTheSameWeek(second));
+
+            first = new DateTime(2014, 3, 30);
+            second = new DateTime(2014, 4, 1);
+            Assert.IsFalse(first.AreInTheSameWeek(second));
         }
 
         #endregion
