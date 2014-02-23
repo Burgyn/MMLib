@@ -88,25 +88,57 @@ namespace MMLib.WPF.CustomControls
 
             var text = textBlock.Text;
             textBlock.Inlines.Clear();
-            while (text.Contains(":-)"))
+
+            StringBuilder sb = new StringBuilder();
+            string pom = string.Empty;
+            for (int i = 0; i < text.Length; i++)
             {
-                textBlock.Inlines.Add(new Run(text.Substring(0, text.IndexOf(":-)"))));
-                text = text.Substring(text.IndexOf(":-)") + 3);
-                var image = new Image()
+                if (!pom.IsNullOrWhiteSpace() && pom.Length == 3)
                 {
-                    Source = Emoticon(),
-                    Stretch = System.Windows.Media.Stretch.UniformToFill,
-                    Width = textBlock.FontSize,
-                    Height = textBlock.FontSize
-                };
-                RenderOptions.SetBitmapScalingMode(image, BitmapScalingMode.HighQuality);
-                textBlock.Inlines.Add(new InlineUIContainer(image));
+                    if (emoticonsConverter.IsEmoticonAlias(pom))
+                    {
+                        var image = new Image()
+                        {
+                            Source = emoticonsConverter.Emoticon(pom),
+                            Stretch = System.Windows.Media.Stretch.UniformToFill,
+                            Width = textBlock.FontSize,
+                            Height = textBlock.FontSize
+                        };
+                        textBlock.Inlines.Add(new Run(sb.ToString()));
+                        sb = new StringBuilder();
+                        pom = string.Empty;
+                        RenderOptions.SetBitmapScalingMode(image, BitmapScalingMode.HighQuality);
+                        textBlock.Inlines.Add(new InlineUIContainer(image));
+                    }
+                    else
+                    {                        
+                    }
+                }
+
+                pom = text.Substring(i, 1);
             }
 
-            if (!text.IsNullOrEmpty())
-            {
-                textBlock.Inlines.Add(new Run(text));
-            }
+            //var text = textBlock.Text;
+            //textBlock.Inlines.Clear();
+            //while (text.Contains(":-)"))
+            //{
+            //    textBlock.Inlines.Add(new Run(text.Substring(0, text.IndexOf(":-)"))));
+            //    text = text.Substring(text.IndexOf(":-)") + 3);
+            //    var image = new Image()
+            //    {
+            //        Source = Emoticon(),
+            //        Stretch = System.Windows.Media.Stretch.UniformToFill,
+            //        Width = textBlock.FontSize,
+            //        Height = textBlock.FontSize
+            //    };
+            //    RenderOptions.SetBitmapScalingMode(image, BitmapScalingMode.HighQuality);
+            //    textBlock.Inlines.Add(new InlineUIContainer(image));
+            //}
+
+            //if (!text.IsNullOrEmpty())
+            //{
+            //    textBlock.Inlines.Add(new Run(text));
+            //}
 
             //var text = textBlock.Text;
             //textBlock.Inlines.Clear();

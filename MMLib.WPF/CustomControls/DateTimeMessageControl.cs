@@ -53,7 +53,7 @@ namespace MMLib.WPF.CustomControls
         {
             base.OnInitialized(e);
 
-            if ((DateTime.Now - DateTime).TotalMinutes <= 10)
+            //if ((DateTime.Now - DateTime).TotalMinutes <= 10)
             {
                 DispatcherTimer dispatcherTimer = new DispatcherTimer();
                 dispatcherTimer.Tick += new EventHandler(dispatcherTimer_Tick);
