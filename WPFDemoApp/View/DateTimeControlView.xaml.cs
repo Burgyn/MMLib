@@ -12,24 +12,17 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using WPFDemoApp.ViewModel;
 
-namespace WPFDemoApp
+namespace WPFDemoApp.View
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for DateTimeControlView.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class DateTimeControlView : UserControl
     {
-        public MainWindow()
+        public DateTimeControlView()
         {
             InitializeComponent();
-            DataContext = new DemoAppViewModel();
-        }
-
-        private void Window_Loaded(object sender, RoutedEventArgs e)
-        {
-
         }
     }
 }

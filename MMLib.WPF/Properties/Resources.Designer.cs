@@ -61,6 +61,24 @@ namespace MMLib.WPF.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to {0} min. ago.
+        /// </summary>
+        internal static string MinAgo {
+            get {
+                return ResourceManager.GetString("MinAgo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to now.
+        /// </summary>
+        internal static string Now {
+            get {
+                return ResourceManager.GetString("Now", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap smile {

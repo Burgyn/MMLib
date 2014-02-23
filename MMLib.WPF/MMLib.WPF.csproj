@@ -49,11 +49,11 @@
     </Reference>
     <Reference Include="MMLib.Core, Version=1.0.5141.32594, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\MMLib.Extensions.1.0.10.8\lib\MMLib.Core.dll</HintPath>
+      <HintPath>..\packages\MMLib.Extensions.1.0.10.9\lib\MMLib.Core.dll</HintPath>
     </Reference>
     <Reference Include="MMLib.Extensions, Version=1.0.2.3, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\MMLib.Extensions.1.0.10.8\lib\MMLib.Extensions.dll</HintPath>
+      <HintPath>..\packages\MMLib.Extensions.1.0.10.9\lib\MMLib.Extensions.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -79,6 +79,11 @@
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Properties\Resources.sk-SK.Designer.cs">
+      <DependentUpon>Resources.sk-SK.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -93,6 +98,10 @@
     <Compile Include="Services\IStartAppService.cs" />
     <Compile Include="Services\StartAppService.cs" />
     <Compile Include="Services\WPFNavigationServices.cs" />
+    <EmbeddedResource Include="Properties\Resources.sk-SK.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.sk-SK.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>

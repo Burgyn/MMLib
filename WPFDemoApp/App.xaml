@@ -1,8 +1,12 @@
 ﻿<Application x:Class="WPFDemoApp.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:vm="clr-namespace:WPFDemoApp.ViewModel"
+             xmlns:view="clr-namespace:WPFDemoApp.View"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+        <DataTemplate DataType="{x:Type vm:DateTimeControlDemoVM}">
+            <view:DateTimeControlView />
+        </DataTemplate>
     </Application.Resources>
 </Application>

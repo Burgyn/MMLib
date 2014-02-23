@@ -38,6 +38,14 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="MMLib.Core, Version=1.0.5141.32594, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\MMLib.Extensions.1.0.10.9\lib\MMLib.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="MMLib.Extensions, Version=1.0.2.3, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\MMLib.Extensions.1.0.10.9\lib\MMLib.Extensions.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
@@ -57,6 +65,12 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="ViewModel\DateTimeControlDemoVM.cs" />
+    <Compile Include="ViewModel\DemoAppViewModel.cs" />
+    <Compile Include="ViewModel\IDemoViewModel.cs" />
+    <Compile Include="View\DateTimeControlView.xaml.cs">
+      <DependentUpon>DateTimeControlView.xaml</DependentUpon>
+    </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -69,6 +83,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="View\DateTimeControlView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -88,6 +106,7 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -98,6 +117,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\MMLib.MVVM\MMLib.MVVM.csproj">
+      <Project>{ae3dbb55-314b-48b0-8f2e-a93649a560a4}</Project>
+      <Name>MMLib.MVVM</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MMLib.WPF\MMLib.WPF.csproj">
       <Project>{5f4f6258-86e2-4850-9c80-e7d4eecbbe98}</Project>
       <Name>MMLib.WPF</Name>

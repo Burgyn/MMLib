@@ -128,10 +128,6 @@ namespace MMLib.WPF.CustomControls
                 (s, e) => _paintArea.Visibility = Visibility.Hidden));
         }
 
-        /// <summary>
-        /// Creates the animation that moves content in or out of view.
-        /// </summary>
-        /// <param name="whenDone">(optional) A callback that will be called when the animation has completed.</param>
         private AnimationTimeline CreateAnimation(FromTo fromTo, EventHandler whenDone = null)
         {
             IEasingFunction ease = new BackEase { Amplitude = Amplitude, EasingMode = EasingMode.EaseOut };

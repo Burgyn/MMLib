@@ -118,10 +118,10 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="MinAgo" xml:space="preserve">
-    <value>{0} min. ago</value>
+    <value>pred {0} min.</value>
   </data>
   <data name="Now" xml:space="preserve">
-    <value>now</value>
+    <value>teraz</value>
   </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="smile" type="System.Resources.ResXFileRef, System.Windows.Forms">

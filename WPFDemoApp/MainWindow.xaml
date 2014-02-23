@@ -5,24 +5,12 @@
         Loaded="Window_Loaded"
         Title="MainWindow" Height="350" Width="525">
     <Grid>
-        <wpf:DateTimeMessageControl HorizontalAlignment="Left" 
-                             Margin="10,10,0,0" 
-                             FontSize="22"
-                             Foreground="Gray"
-                             FontWeight="Bold"
-                                    x:Name="dt0"
-                             VerticalAlignment="Top"/>
-        <wpf:DateTimeMessageControl HorizontalAlignment="Left" Margin="10,44,0,0" VerticalAlignment="Top"
-                                    x:Name="dt1"/>
-        <wpf:DateTimeMessageControl HorizontalAlignment="Left" Margin="10,65,0,0" VerticalAlignment="Top"
-                                    x:Name="dt2"/>
-        <wpf:DateTimeMessageControl HorizontalAlignment="Left" Margin="10,86,0,0" VerticalAlignment="Top"
-                                    x:Name="dt3"/>
-        <wpf:DateTimeMessageControl HorizontalAlignment="Left" Margin="10,107,0,0" VerticalAlignment="Top"
-                                    x:Name="dt4"/>
-        <wpf:DateTimeMessageControl HorizontalAlignment="Left" Margin="10,128,0,0" VerticalAlignment="Top"
-        	x:Name="dt5"/>
-        <wpf:DateTimeMessageControl HorizontalAlignment="Left" Margin="0,149,0,0" VerticalAlignment="Top"
-        	x:Name="dt6"/>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="120"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <ListBox ItemsSource="{Binding ItemSSource}" Margin="5" />
+        
+        <ContentControl Grid.Column="1" Content="{Binding Path=ActualDemo}" Margin="5" />
     </Grid>
 </Window>

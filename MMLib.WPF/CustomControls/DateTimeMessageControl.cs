@@ -53,12 +53,12 @@ namespace MMLib.WPF.CustomControls
         {
             base.OnInitialized(e);
 
-            if ((DateTime.Now - DateTime).TotalMinutes <= 5)
+            if ((DateTime.Now - DateTime).TotalMinutes <= 10)
             {
                 DispatcherTimer dispatcherTimer = new DispatcherTimer();
                 dispatcherTimer.Tick += new EventHandler(dispatcherTimer_Tick);
                 dispatcherTimer.Interval = new TimeSpan(0, 1, 0);
-                dispatcherTimer.Start();
+                dispatcherTimer.Start(); 
             }
         }
 
@@ -66,17 +66,16 @@ namespace MMLib.WPF.CustomControls
 
         #region Private helpers
 
-
-
         private void dispatcherTimer_Tick(object sender, EventArgs e)
-        {           
+        {
             var pom = DateTime;
             DateTime = new DateTime();
             DateTime = pom;
 
-            if ((DateTime.Now - DateTime).TotalMinutes > 5)
+            if ((DateTime.Now - DateTime).TotalMinutes > 10)
             {
                 (sender as DispatcherTimer).Stop();
+                (sender as DispatcherTimer).Tick -= new EventHandler(dispatcherTimer_Tick);
             }
         }
 

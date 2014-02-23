@@ -40,6 +40,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
     <Reference Include="System" />
   </ItemGroup>
   <Choose>
@@ -55,12 +57,17 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="Converters\DateTimeToMessageCoverterTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MMLib.WPF\MMLib.WPF.csproj">
       <Project>{5f4f6258-86e2-4850-9c80-e7d4eecbbe98}</Project>
       <Name>MMLib.WPF</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MMLib\MMLib.Core.csproj">
+      <Project>{dcab5fcb-a6be-44bf-a440-64561101fa3e}</Project>
+      <Name>MMLib.Core</Name>
     </ProjectReference>
   </ItemGroup>
   <Choose>
