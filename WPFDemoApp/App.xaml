@@ -5,8 +5,18 @@
              xmlns:view="clr-namespace:WPFDemoApp.View"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-        <DataTemplate DataType="{x:Type vm:DateTimeControlDemoVM}">
-            <view:DateTimeControlView />
-        </DataTemplate>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/MMLib.WPF;component/Themes/Generic.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+
+            <DataTemplate DataType="{x:Type vm:DateTimeControlDemoVM}">
+                <view:DateTimeControlView />
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type vm:NavigationDemoViewModel}">
+                <view:NavigationDemoView />
+            </DataTemplate>
+        </ResourceDictionary>
     </Application.Resources>
 </Application>

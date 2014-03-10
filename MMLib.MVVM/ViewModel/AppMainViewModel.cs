@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MMLib.MVVM.Services;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,6 +14,7 @@ namespace MMLib.MVVM.ViewModel
         #region Private Fields
 
         private IAppContent _appContent;
+        private IMessageBox _messageBox;
 
         #endregion
 
@@ -30,6 +32,21 @@ namespace MMLib.MVVM.ViewModel
             set
             {
                 SetPropertyValue<IAppContent>(() => AppContent, ref _appContent, value);
+            }
+        }
+
+        /// <summary>
+        /// Actualy shown message box.
+        /// </summary>
+        public IMessageBox MessageBox
+        {
+            get
+            {
+                return _messageBox;
+            }
+            set
+            {
+                SetPropertyValue<IMessageBox>(() => MessageBox, ref _messageBox, value);
             }
         }
 

@@ -1,0 +1,21 @@
+﻿<UserControl x:Class="WPFDemoApp.View.NavigationDemoView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             xmlns:mmlib="clr-namespace:MMLib.WPF.CustomControls;assembly=MMLib.WPF"
+             d:DesignHeight="300" d:DesignWidth="300">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <StackPanel>
+            <Button Content="Message box" Command="{Binding Path=ShowMessageBoxCommand}" />
+        </StackPanel>
+        <mmlib:AnimatedContentControl Content="{Binding Path=AppContent}" Amplitude="0" Grid.Row="1" />
+
+        <ContentControl Content="{Binding Path=MessageBox}" Grid.Row="1" />
+    </Grid>
+</UserControl>

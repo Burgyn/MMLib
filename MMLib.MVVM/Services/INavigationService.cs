@@ -39,5 +39,20 @@ namespace MMLib.MVVM.Services
         /// </summary>
         /// <returns>Can navigate to preview content?</returns>
         bool CanNavigateBack();
+
+        /// <summary>
+        /// Show message box with message. Without callback.
+        /// </summary>
+        /// <param name="message">Message to show.</param>
+        void ShowMessageBox(string message);
+
+        /// <summary>
+        /// Show message box with message, specific buttons end image.
+        /// </summary>
+        /// <param name="message">Message to show.</param>
+        /// <param name="buttons">Buttons, which want show.</param>
+        /// <param name="images">Image.</param>
+        /// <param name="callBack">Callback function, which is called after user click on button.</param>
+        void ShowMessageBox(string message, eMessageBoxButton buttons, eMessageBoxImage images, Action<eMessageBoxResult> callBack);
     }
 }

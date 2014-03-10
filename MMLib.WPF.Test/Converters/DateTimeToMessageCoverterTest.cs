@@ -16,22 +16,22 @@ namespace MMLib.WPF.Test.Converters
             DateTimeToMessageCoverter target = new DateTimeToMessageCoverter();
 
             DateTime value = new DateTime(2014, 2, 23, 18, 13, 23);
-            Assert.AreEqual("now", target.Convert(value, null, null, null));
+            Assert.AreEqual("teraz", target.Convert(value, null, null, null));
 
             value = new DateTime(2014, 2, 23, 18, 13, 22);
-            Assert.AreEqual("now", target.Convert(value, null, null, null));
+            Assert.AreEqual("teraz", target.Convert(value, null, null, null));
 
             value = new DateTime(2014, 2, 23, 18, 13, 00);
-            Assert.AreEqual("now", target.Convert(value, null, null, null));
+            Assert.AreEqual("teraz", target.Convert(value, null, null, null));
 
             value = new DateTime(2014, 2, 23, 18, 12, 30);
-            Assert.AreEqual("now", target.Convert(value, null, null, null));
+            Assert.AreEqual("teraz", target.Convert(value, null, null, null));
 
             value = new DateTime(2014, 2, 23, 18, 12, 23);
-            Assert.AreNotEqual("now", target.Convert(value, null, null, null));
+            Assert.AreNotEqual("teraz", target.Convert(value, null, null, null));
 
             value = new DateTime(2015, 2, 23, 18, 13, 21);
-            Assert.AreNotEqual("now", target.Convert(value, null, null, null));
+            Assert.AreNotEqual("teraz", target.Convert(value, null, null, null));
         }
 
         [TestMethod]
@@ -41,16 +41,16 @@ namespace MMLib.WPF.Test.Converters
             DateTimeToMessageCoverter target = new DateTimeToMessageCoverter();
 
             DateTime now = new DateTime(2014, 2, 23, 18, 12, 23);
-            Assert.AreEqual("1 min. ago", target.Convert(now, null, null, null));
+            Assert.AreEqual("pred 1 min.", target.Convert(now, null, null, null));
 
             now = new DateTime(2014, 2, 23, 18, 11, 24);
-            Assert.AreEqual("2 min. ago", target.Convert(now, null, null, null));
+            Assert.AreEqual("pred 2 min.", target.Convert(now, null, null, null));
 
             now = new DateTime(2014, 2, 23, 18, 3, 24);
-            Assert.AreEqual("10 min. ago", target.Convert(now, null, null, null));
+            Assert.AreEqual("pred 10 min.", target.Convert(now, null, null, null));
 
             now = new DateTime(2015, 2, 23, 18, 3, 24);
-            Assert.AreNotEqual("10 min. ago", target.Convert(now, null, null, null));
+            Assert.AreNotEqual("pred 10 min.", target.Convert(now, null, null, null));
         }
 
         [TestMethod]

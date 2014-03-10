@@ -30,7 +30,7 @@ namespace MMLib.MVVM.Services
         /// <param name="container">Unity container for resolving navigation targets.</param>
         /// <param name="appMainViewModel">Main application view model.</param>
         /// <param name="appHomeContent">Application home content.</param>
-        public  NavigationService(UnityContainer container,
+        public NavigationService(UnityContainer container,
                                IAppMainViewModel appMainViewModel,
                                      IAppContent appHomeContent)
         {
@@ -110,6 +110,29 @@ namespace MMLib.MVVM.Services
         public bool CanNavigateBack()
         {
             return _navigationHistory.Count > 0;
+        }
+
+        /// <summary>
+        /// Show message box with message. Without callback.
+        /// </summary>
+        /// <param name="message">Message to show.</param>
+        public void ShowMessageBox(string message)
+        {
+            ShowMessageBox(message, eMessageBoxButton.OK, eMessageBoxImage.None, null);
+        }
+
+        /// <summary>
+        /// Show message box with message, specific buttons end image.
+        /// </summary>
+        /// <param name="message">Message to show.</param>
+        /// <param name="buttons">Buttons, which want show.</param>
+        /// <param name="images">Image.</param>
+        /// <param name="callBack">Callback function, which is called after user click on button.</param>
+        public void ShowMessageBox(string message, eMessageBoxButton buttons,
+                         eMessageBoxImage images, Action<eMessageBoxResult> callBack)
+        {
+            _appMainViewModel.MessageBox = MessageBox.CreateMessageBox(_appMainViewModel,
+                message, buttons, images, callBack);
         }
 
         #endregion

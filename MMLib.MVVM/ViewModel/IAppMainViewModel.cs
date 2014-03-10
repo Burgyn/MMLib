@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MMLib.MVVM.Services;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -14,5 +15,10 @@ namespace MMLib.MVVM.ViewModel
         /// Actual application content.
         /// </summary>
         IAppContent AppContent { get; set; }
+
+        /// <summary>
+        /// Actualy shown message box.
+        /// </summary>        
+        IMessageBox MessageBox { get; set; }
     }
 }

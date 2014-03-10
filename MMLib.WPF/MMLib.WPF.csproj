@@ -37,6 +37,25 @@
     <WarningLevel>4</WarningLevel>
     <DocumentationFile>..\Documentations\MMLib.WPF.XML</DocumentationFile>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>ManagedMinimumRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <DocumentationFile>..\Documentations\MMLib.WPF.XML</DocumentationFile>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>ManagedMinimumRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.Practices.ServiceLocation">
       <HintPath>..\packages\CommonServiceLocator.1.0\lib\NET35\Microsoft.Practices.ServiceLocation.dll</HintPath>
@@ -73,6 +92,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Converters\DateTimeToMessageCoverter.cs" />
+    <Compile Include="Converters\MessageBoxImageConverter.cs" />
     <Compile Include="CustomControls\AnimatedContentControl.cs" />
     <Compile Include="CustomControls\DateTimeMessageControl.cs" />
     <Compile Include="Decorators\SingleAppDecorator.cs" />
@@ -98,6 +118,9 @@
     <Compile Include="Services\IStartAppService.cs" />
     <Compile Include="Services\StartAppService.cs" />
     <Compile Include="Services\WPFNavigationServices.cs" />
+    <Compile Include="View\MessageBoxView.xaml.cs">
+      <DependentUpon>MessageBoxView.xaml</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Properties\Resources.sk-SK.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.sk-SK.Designer.cs</LastGenOutput>
@@ -127,6 +150,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Themes\Default\ColorScheme.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Themes\Default\DateTimeControl.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -135,11 +162,27 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\MessageBoxView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\smile.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Error64.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Information64.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Question64.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Warning64.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

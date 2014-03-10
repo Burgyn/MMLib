@@ -50,6 +50,14 @@ namespace MMLib.MVVM.Command
 
         #endregion
 
+        #region Public properties
+
+        /// <summary>
+        /// Display name of the command.
+        /// </summary>
+        public string DisplayName { get; set; }
+
+        #endregion
 
         #region ICommand Members
 

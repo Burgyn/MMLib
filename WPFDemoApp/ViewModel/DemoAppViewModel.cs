@@ -22,6 +22,7 @@ namespace WPFDemoApp.ViewModel
         {
             ItemsSource = new ObservableCollection<IDemoViewModel>();
             ItemsSource.Add(new DateTimeControlDemoVM());
+            ItemsSource.Add(new NavigationDemoViewModel());
 
             ActualDemo = ItemsSource[0];
         }
