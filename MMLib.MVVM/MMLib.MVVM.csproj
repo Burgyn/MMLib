@@ -86,6 +86,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Base\NotificationObject.cs" />
+    <Compile Include="Command\MailToCommand.cs" />
     <Compile Include="Command\RelayCommand.cs" />
     <Compile Include="Model\IModel.cs" />
     <Compile Include="Model\NonWrappedAttribute.cs" />
