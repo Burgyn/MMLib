@@ -26,7 +26,7 @@ namespace MMLib.WPF.Services
                 new ChannelFactory<IStartAppService>(
                   new NetNamedPipeBinding(),
                   new EndpointAddress(
-                    "net.pipe://localhost/PipeAppService"));
+                    string.Format("net.pipe://localhost/{0}", GetAppName())));
 
             _startAppService = pipeFactory.CreateChannel();
         }
@@ -54,7 +54,7 @@ namespace MMLib.WPF.Services
                         new Uri("net.pipe://localhost")});
 
             _host.AddServiceEndpoint(typeof(IStartAppService),
-                new NetNamedPipeBinding(), "PipeAppService");
+                new NetNamedPipeBinding(), GetAppName());
 
             _host.Open();
         }
@@ -83,6 +83,16 @@ namespace MMLib.WPF.Services
         public void Dispose()
         {
             Dispose(true);
+        }
+
+        #endregion
+
+
+        #region Private helpers
+
+        private string GetAppName()
+        {
+            return System.Diagnostics.Process.GetCurrentProcess().ProcessName;
         }
 
         #endregion
