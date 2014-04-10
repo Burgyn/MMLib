@@ -95,6 +95,7 @@
     <Compile Include="Converters\MessageBoxImageConverter.cs" />
     <Compile Include="CustomControls\AnimatedContentControl.cs" />
     <Compile Include="CustomControls\DateTimeMessageControl.cs" />
+    <Compile Include="CustomControls\IconButton.cs" />
     <Compile Include="Decorators\SingleAppDecorator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
@@ -153,6 +154,10 @@
     <Page Include="Themes\Default\ColorScheme.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\Default\IconButton.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Themes\Default\DateTimeControl.xaml">
       <Generator>MSBuild:Compile</Generator>

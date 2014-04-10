@@ -5,7 +5,8 @@
     <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary Source="/MMLib.WPF;component/Themes/Default/AnimatedContentControl.xaml" />
         <ResourceDictionary Source="/MMLib.WPF;component/Themes/Default/DateTimeControl.xaml" />
-        <ResourceDictionary Source="/MMLib.WPF;component/Themes/Default/ColorScheme.xaml" />
+        <ResourceDictionary Source="/MMLib.WPF;component/Themes/Default/IconButton.xaml" />
+        <ResourceDictionary Source="/MMLib.WPF;component/Themes/Default/ColorScheme.xaml" />        
     </ResourceDictionary.MergedDictionaries>
 
     <DataTemplate DataType="{x:Type service:MessageBox}">

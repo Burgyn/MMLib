@@ -51,7 +51,7 @@ namespace MMLib.WPF.Services
             _host = new ServiceHost(
                    typeof(StartAppService),
                    new Uri[]{
-                        new Uri("net.pipe://localhost")});
+                        new Uri( string.Format("net.pipe://localhost/{0}", GetAppName()))});
 
             _host.AddServiceEndpoint(typeof(IStartAppService),
                 new NetNamedPipeBinding(), GetAppName());

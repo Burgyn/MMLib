@@ -20,5 +20,6 @@
         </Grid.RowDefinitions>
         <ItemsControl ItemsSource="{Binding Path=ItemsSource}" />
         <!--<Button Content="Add" Grid.Row="1" />-->
+        <wpf:IconButton ImageWidth="32" Grid.Row="1" Background="#FF413F54" Height="50" Width="90" ImageSource="/WPFDemoApp;component/Resources/Contact-32.png" MouseOverBackground="#FF5D569E" />
     </Grid>
 </UserControl>

@@ -1,0 +1,71 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:controls="clr-namespace:MMLib.WPF.CustomControls"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:converters="clr-namespace:MMLib.WPF.Converters">
+    
+    <converters:DateTimeToMessageCoverter x:Key="dateTimeToMessageCoverter" />
+    
+    <!-- Style for animated content control -->
+    <Style TargetType="{x:Type controls:IconButton}">
+        <Setter Property="Background" Value="{x:Null}" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type controls:IconButton}">
+                    <Grid>
+                        <VisualStateManager.VisualStateGroups>
+                            <VisualStateGroup x:Name="CommonStates">
+                                <VisualState x:Name="Disabled" />
+                                <VisualState x:Name="Normal" />
+                                <VisualState x:Name="MouseOver">
+                                    <Storyboard>
+                                        <!--<DoubleAnimation Storyboard.TargetProperty="(UIElement.Opacity)" 
+                                                         Storyboard.TargetName="border" 
+                                                         To="1" 
+                                                         Duration="0" />-->
+                                        <DoubleAnimation Storyboard.TargetProperty="(UIElement.Opacity)" 
+                                                         Storyboard.TargetName="content" 
+                                                         To="1" 
+                                                         Duration="0" />
+                                    </Storyboard>
+                                </VisualState>
+                                <VisualState x:Name="Pressed">
+                                    <Storyboard>
+                                        <!--<DoubleAnimation Storyboard.TargetProperty="(UIElement.Opacity)" 
+                                                         Storyboard.TargetName="border" 
+                                                         To="1" 
+                                                         Duration="0" />-->
+                                        <DoubleAnimation Storyboard.TargetProperty="(UIElement.Opacity)" 
+                                                         Storyboard.TargetName="content" 
+                                                         To="1" 
+                                                         Duration="0" />
+                                    </Storyboard>
+                                </VisualState>
+                            </VisualStateGroup>
+                        </VisualStateManager.VisualStateGroups>
+                        <!--<Border x:Name="border" Opacity="0" />-->
+                        <Border BorderBrush="{TemplateBinding BorderBrush}"                                 
+                                BorderThickness="{TemplateBinding BorderThickness}" 
+                                Padding="{TemplateBinding Padding}"
+                                Background="{TemplateBinding Background}"
+                                x:Name="mainBorder">
+                            <Image Source="{Binding Path=ImageSource, RelativeSource={RelativeSource AncestorType={x:Type controls:IconButton}}}"
+                                   Width="{Binding Path=ImageWidth, RelativeSource={RelativeSource AncestorType={x:Type controls:IconButton}}}"
+                                   x:Name="content"
+                                   Opacity="0.5"/>
+                        </Border>
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger SourceName="mainBorder" 
+                                 Property="IsMouseOver" 
+                                 Value="True">
+                            <Setter TargetName="mainBorder" 
+                                    Property="Background" 
+                                    Value="{Binding RelativeSource={RelativeSource AncestorType={x:Type controls:IconButton}}, 
+                                                    Path=MouseOverBackground, Mode=OneWay}" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+</ResourceDictionary>
