@@ -19,6 +19,9 @@ namespace MMLib.WPF.View
     /// </summary>
     public partial class MessageBoxView : UserControl
     {
+        /// <summary>
+        /// Constructor
+        /// </summary>
         public MessageBoxView()
         {
             InitializeComponent();

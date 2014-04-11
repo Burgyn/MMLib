@@ -2,12 +2,14 @@
                     xmlns:controls="clr-namespace:MMLib.WPF.CustomControls"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:converters="clr-namespace:MMLib.WPF.Converters">
-    
+
     <converters:DateTimeToMessageCoverter x:Key="dateTimeToMessageCoverter" />
-    
-    <!-- Style for animated content control -->
+
+    <!-- Style for Icon buton control -->
     <Style TargetType="{x:Type controls:IconButton}">
         <Setter Property="Background" Value="{x:Null}" />
+        <Setter Property="BorderBrush" Value="{x:Null}" />
+        <Setter Property="BorderThickness" Value="0" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type controls:IconButton}">
@@ -18,10 +20,6 @@
                                 <VisualState x:Name="Normal" />
                                 <VisualState x:Name="MouseOver">
                                     <Storyboard>
-                                        <!--<DoubleAnimation Storyboard.TargetProperty="(UIElement.Opacity)" 
-                                                         Storyboard.TargetName="border" 
-                                                         To="1" 
-                                                         Duration="0" />-->
                                         <DoubleAnimation Storyboard.TargetProperty="(UIElement.Opacity)" 
                                                          Storyboard.TargetName="content" 
                                                          To="1" 
@@ -30,10 +28,6 @@
                                 </VisualState>
                                 <VisualState x:Name="Pressed">
                                     <Storyboard>
-                                        <!--<DoubleAnimation Storyboard.TargetProperty="(UIElement.Opacity)" 
-                                                         Storyboard.TargetName="border" 
-                                                         To="1" 
-                                                         Duration="0" />-->
                                         <DoubleAnimation Storyboard.TargetProperty="(UIElement.Opacity)" 
                                                          Storyboard.TargetName="content" 
                                                          To="1" 
@@ -42,7 +36,6 @@
                                 </VisualState>
                             </VisualStateGroup>
                         </VisualStateManager.VisualStateGroups>
-                        <!--<Border x:Name="border" Opacity="0" />-->
                         <Border BorderBrush="{TemplateBinding BorderBrush}"                                 
                                 BorderThickness="{TemplateBinding BorderThickness}" 
                                 Padding="{TemplateBinding Padding}"

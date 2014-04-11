@@ -14,8 +14,14 @@ namespace MMLib.WPF.CustomControls
     /// </summary>
     public class IconButton : Button
     {
+        /// <summary>
+        /// Source for Image
+        /// </summary>
         public static DependencyProperty ImageSourceProperty = DependencyProperty.Register("ImageSource", typeof(ImageSource), typeof(IconButton));
 
+        /// <summary>
+        /// Source for image
+        /// </summary>
         [Description("ImageSource for Image")]
         [Category("MMLib.WPF")]
         public ImageSource ImageSource
@@ -30,9 +36,14 @@ namespace MMLib.WPF.CustomControls
             }
         }
 
-
+        /// <summary>
+        /// Image width
+        /// </summary>
         public static DependencyProperty ImageWidthProperty = DependencyProperty.Register("ImageWidth", typeof(double), typeof(IconButton));
 
+        /// <summary>
+        /// Image width
+        /// </summary>
         [Description("Image width")]
         [Category("MMLib.WPF")]        
         public double ImageWidth
@@ -47,9 +58,14 @@ namespace MMLib.WPF.CustomControls
             }
         }
 
-
+        /// <summary>
+        /// Button background, when mouse is over.
+        /// </summary>
         public static DependencyProperty MouseOverBackgroundProperty = DependencyProperty.Register("MouseOverBackground", typeof(Brush), typeof(IconButton));
 
+        /// <summary>
+        ///  Button background, when mouse is over.
+        /// </summary>
         [Description("Background, when mouse is over button")]
         [Category("MMLib.WPF")]
         public Brush MouseOverBackground

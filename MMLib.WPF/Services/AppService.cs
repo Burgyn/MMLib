@@ -6,6 +6,9 @@ using System.Text;
 
 namespace MMLib.WPF.Services
 {
+    /// <summary>
+    /// App service for single application.
+    /// </summary>
     public class AppService : IDisposable
     {
         #region Private Fields
@@ -64,6 +67,12 @@ namespace MMLib.WPF.Services
         #region IDisposable
 
         private bool disposed = false;
+
+        /// <summary>
+        /// Performs application-defined tasks associated with freeing, releasing, or
+        /// resetting unmanaged resources.
+        /// </summary>
+        /// <param name="disposing">Is disposing from code?</param>
         protected virtual void Dispose(bool disposing)
         {
             if (!disposed)
@@ -80,13 +89,16 @@ namespace MMLib.WPF.Services
             }
         }
 
+        /// <summary>
+        /// Performs application-defined tasks associated with freeing, releasing, or
+        /// resetting unmanaged resources.
+        /// </summary>
         public void Dispose()
         {
             Dispose(true);
         }
 
         #endregion
-
 
         #region Private helpers
 

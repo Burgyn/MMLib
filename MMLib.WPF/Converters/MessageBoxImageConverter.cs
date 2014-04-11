@@ -19,6 +19,14 @@ namespace MMLib.WPF.Converters
 
         #region Public methods
 
+        /// <summary>
+        /// Converter for message box image
+        /// </summary>
+        /// <param name="value">Type of message.</param>
+        /// <param name="targetType"></param>
+        /// <param name="parameter"></param>
+        /// <param name="culture"></param>
+        /// <returns></returns>
         public object Convert(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
         {
             eMessageBoxImage val = (eMessageBoxImage)value;
