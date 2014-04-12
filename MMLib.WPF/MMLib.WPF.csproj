@@ -93,6 +93,7 @@
   <ItemGroup>
     <Compile Include="Converters\DateTimeToMessageCoverter.cs" />
     <Compile Include="Converters\MessageBoxImageConverter.cs" />
+    <Compile Include="Converters\MinusDoubleConverter.cs" />
     <Compile Include="CustomControls\AnimatedContentControl.cs" />
     <Compile Include="CustomControls\DateTimeMessageControl.cs" />
     <Compile Include="CustomControls\IconButton.cs" />

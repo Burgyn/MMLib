@@ -76,6 +76,7 @@
   </Choose>
   <ItemGroup>
     <Compile Include="Converters\DateTimeToMessageCoverterTest.cs" />
+    <Compile Include="Converters\MinusDoubleConverterTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
