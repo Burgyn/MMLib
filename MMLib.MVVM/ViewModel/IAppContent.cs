@@ -10,5 +10,14 @@ namespace MMLib.MVVM.ViewModel
     /// </summary>
     public interface IAppContent
     {
+        /// <summary>
+        /// Occured, when navigation service navigate to this content.
+        /// </summary>
+        void OnNavigationIn();
+
+        /// <summary>
+        /// Occured, when navigation service navigate to another content from this content.
+        /// </summary>
+        void OnNavigationOut();
     }
 }
