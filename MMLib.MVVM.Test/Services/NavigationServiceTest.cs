@@ -3,6 +3,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Microsoft.Practices.Unity;
 using MMLib.MVVM.Services;
 using MMLib.MVVM.ViewModel;
+using MMLib.MVVM.Test.Services.Fakes;
 
 namespace MMLib.MVVM.Test.Services
 {
@@ -14,11 +15,13 @@ namespace MMLib.MVVM.Test.Services
         {
             using (var container = new UnityContainer())
             {
-                IAppContent fakeAppContent = new Fakes.FakeAppContent();
+                FakeAppContent fakeAppContent = new Fakes.FakeAppContent();
                 AppMainViewModel mainAppViewModel = new AppMainViewModel();
                 var target = new NavigationService(container, mainAppViewModel, fakeAppContent);
                 target.NavigateHome();
 
+                Assert.IsTrue(fakeAppContent.NavigationIn);
+                Assert.IsFalse(fakeAppContent.NavigationOut);
                 Assert.AreEqual(fakeAppContent, mainAppViewModel.AppContent);
             }
         }
@@ -28,11 +31,13 @@ namespace MMLib.MVVM.Test.Services
         {
             using (var container = new UnityContainer())
             {
-                IAppContent fakeAppContent = new Fakes.FakeAppContent();
+                FakeAppContent fakeAppContent = new Fakes.FakeAppContent();
                 AppMainViewModel mainAppViewModel = new AppMainViewModel();
                 var target = new NavigationService(container, mainAppViewModel, fakeAppContent);
                 target.NavigateTo(fakeAppContent);
 
+                Assert.IsTrue(fakeAppContent.NavigationIn);
+                Assert.IsFalse(fakeAppContent.NavigationOut);
                 Assert.AreEqual(fakeAppContent, mainAppViewModel.AppContent);
             }
         }
@@ -42,7 +47,7 @@ namespace MMLib.MVVM.Test.Services
         {
             using (var container = new UnityContainer())
             {
-                IAppContent fakeAppContent = new Fakes.FakeAppContent();
+                FakeAppContent fakeAppContent = new Fakes.FakeAppContent();
                 AppMainViewModel mainAppViewModel = new AppMainViewModel();
                 var target = new NavigationService(container, mainAppViewModel, fakeAppContent);
 
@@ -57,19 +62,27 @@ namespace MMLib.MVVM.Test.Services
         {
             using (var container = new UnityContainer())
             {
-                IAppContent fakeAppContent = new Fakes.FakeAppContent() { Value = 10 };
+                FakeAppContent fakeAppContent = new Fakes.FakeAppContent() { Value = 10 };
                 AppMainViewModel mainAppViewModel = new AppMainViewModel();
-                var target = new NavigationService(container, mainAppViewModel, new Fakes.FakeAppContent() { Value = -1 });
+                FakeAppContent homeContent = new Fakes.FakeAppContent() { Value = -1 };
+                var target = new NavigationService(container, mainAppViewModel, homeContent);
 
                 Assert.IsFalse(target.CanNavigateBack());
 
                 target.NavigateHome();
+                Assert.IsTrue(homeContent.NavigationIn);
                 Assert.IsFalse(target.CanNavigateBack());
 
                 target.NavigateTo(fakeAppContent); //10
+                Assert.IsTrue(fakeAppContent.NavigationIn);
+                Assert.IsTrue(homeContent.NavigationOut);
                 Assert.IsTrue(target.CanNavigateBack());
 
+                homeContent.NavigationOut = false; homeContent.NavigationIn = false; fakeAppContent.NavigationOut = false;
                 target.NavigateBack(); //-1
+
+                Assert.IsTrue(homeContent.NavigationIn);
+                Assert.IsTrue(fakeAppContent.NavigationOut);
                 Assert.IsFalse(target.CanNavigateBack());
                 Assert.AreEqual(-1, (mainAppViewModel.AppContent as Fakes.FakeAppContent).Value);
 

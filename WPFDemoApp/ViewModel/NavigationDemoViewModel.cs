@@ -60,5 +60,15 @@ namespace WPFDemoApp.ViewModel
         }
 
         #endregion
+
+        public void OnNavigationIn()
+        {
+           
+        }
+
+        public void OnNavigationOut()
+        {
+
+        }
     }
 }

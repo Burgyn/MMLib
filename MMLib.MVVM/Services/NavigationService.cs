@@ -73,10 +73,10 @@ namespace MMLib.MVVM.Services
         /// <param name="target">Navigate to new target appliaction content.</param>
         public virtual void NavigateTo(IAppContent target)
         {
-            Contract.Requires(target != null);
+            Contract.Requires(target != null);           
 
             CheckHistory(target);
-            OnNavigateTo(target);
+            OnNavigateTo(target);           
         }
 
         /// <summary>
@@ -145,7 +145,15 @@ namespace MMLib.MVVM.Services
         /// <param name="target">Navigate to new target appliaction content.</param>
         protected virtual void OnNavigateTo(IAppContent target)
         {
+            IAppContent oldContent = _appMainViewModel.AppContent;
+
             _appMainViewModel.AppContent = target;
+
+            if (oldContent != null)
+            {
+                oldContent.OnNavigationOut();
+            }
+            target.OnNavigationIn();
         }
 
         #endregion

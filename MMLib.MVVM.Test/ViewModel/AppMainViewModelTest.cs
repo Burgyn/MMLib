@@ -20,6 +20,15 @@ namespace MMLib.MVVM.Test.ViewModel
         class TestAppContent : IAppContent
         {
 
+            public void OnNavigationIn()
+            {
+                throw new NotImplementedException();
+            }
+
+            public void OnNavigationOut()
+            {
+                throw new NotImplementedException();
+            }
         }
     }
 }
