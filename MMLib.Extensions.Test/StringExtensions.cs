@@ -559,7 +559,7 @@ namespace MMLib.Extensions.Test
             Assert.IsFalse("m!ino.gelecak@microsof.sk".IsValidEmailAddress());
             Assert.IsFalse("mi\no.gelecak@microsof.sk".IsValidEmailAddress());
             Assert.IsFalse("min%o.gelecak@microsof.sk".IsValidEmailAddress());
-        } 
+        }
 
         #endregion
 
@@ -577,7 +577,7 @@ namespace MMLib.Extensions.Test
             Assert.IsTrue("196.168.1.1".IsValidIPAddress());
 
             Assert.IsTrue("2001:0db8:85a3:0000:1319:8a2e:0370:7344".IsValidIPAddress());
-            Assert.IsTrue("2001:0db8:85a3::1319:8a2e:0370:7344".IsValidIPAddress());            
+            Assert.IsTrue("2001:0db8:85a3::1319:8a2e:0370:7344".IsValidIPAddress());
         }
 
         [TestMethod]
@@ -591,7 +591,7 @@ namespace MMLib.Extensions.Test
             Assert.IsFalse("300.168.1.1".IsValidIPAddress());
 
             Assert.IsFalse("2002341:0db8:85a3:0000:1319:8a2e:0370:7344".IsValidIPAddress());
-        } 
+        }
 
         #endregion
 
@@ -611,10 +611,38 @@ namespace MMLib.Extensions.Test
 
         [TestMethod]
         public void IsValidURLAddress_FalseTest()
-        {          
+        {
             Assert.IsFalse("https:///mmlib.codeplex.com/SourceControl/latest".IsValidUrlAddress());
             Assert.IsFalse("www.google.sk[]'\'/';;".IsValidUrlAddress());
-        } 
+        }
+
+        #endregion
+
+
+        #region Html decode
+
+        [TestMethod]
+        public void HtmlDecode_NullTest()
+        {
+            string target = null;
+
+            Assert.AreEqual(null, target.HtmlDecode());
+
+            target = string.Empty;
+            Assert.AreEqual(string.Empty, target.HtmlDecode());
+
+            target = " ";
+            Assert.AreEqual(" ", target.HtmlDecode());
+        }
+
+        [TestMethod]
+        public void HtmlDecode_EntitiesTest()
+        {
+            string target = "This is example test where I test entities&lt;Yes entities&gt; hmm &amp; &copy;&reg;&euro;";
+            string expected = "This is example test where I test entities<Yes entities> hmm & ©®€";
+            string actual = target.HtmlDecode();
+            Assert.AreEqual(expected, actual);
+        }
 
         #endregion
 

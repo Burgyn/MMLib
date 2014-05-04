@@ -399,6 +399,16 @@ namespace MMLib.Extensions
         }
 
 
+        /// <summary>
+        /// Decode html text to plain text. (Replace Html entities like copy; to ©).
+        /// </summary>
+        /// <param name="htmlText">Html text.</param>
+        /// <returns>Plain text.</returns>
+        public static string HtmlDecode(this string htmlText)
+        {
+            return WebUtility.HtmlDecode(htmlText);
+        }
+
         //ToDo: Later:
         //FormatWithMask
         //Right
