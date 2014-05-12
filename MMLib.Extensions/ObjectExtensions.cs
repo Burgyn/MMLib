@@ -1,8 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics.Contracts;
+using System.IO;
 using System.Linq;
 using System.Text;
+using System.Xml.Linq;
+using System.Xml.Serialization;
 
 namespace MMLib.Extensions
 {
@@ -94,6 +97,49 @@ namespace MMLib.Extensions
             }
 
             return ret;
+        }
+
+        /// <summary>
+        /// Serialize object value to XElement.
+        /// </summary>
+        /// <param name="value">Object value for serialization.</param>
+        /// <returns>
+        /// XElement with serialize data from object.
+        /// </returns>
+        public static XElement ToXElement(this object value)
+        {
+            Contract.Requires(value != null);
+            Contract.Ensures(Contract.Result<XElement>() != null);
+
+            using (var memoryStream = new MemoryStream())
+            {
+                using (TextWriter streamWriter = new StreamWriter(memoryStream))
+                {
+                    var xmlSerializer = new XmlSerializer(value.GetType());
+                    xmlSerializer.Serialize(streamWriter, value);
+                    return XElement.Parse(Encoding.UTF8.GetString(memoryStream.ToArray()));
+                }
+            }
+        }
+
+        /// <summary>
+        /// Deserialize object from XElement
+        /// </summary>
+        /// <typeparam name="T">Type of deserialized value.</typeparam>
+        /// <param name="value">Serialized value in XElement.</param>
+        /// <returns>
+        /// Deserialized value.
+        /// </returns>
+        public static T FromXElement<T>(this XElement value)
+        {
+            Contract.Requires(value != null);
+            Contract.Ensures(Contract.Result<T>() != null);
+
+            using (var memoryStream = new MemoryStream(Encoding.UTF8.GetBytes(value.ToString())))
+            {
+                var xmlSerializer = new XmlSerializer(typeof(T));
+                return (T)xmlSerializer.Deserialize(memoryStream);
+            }
         }
     }
 }

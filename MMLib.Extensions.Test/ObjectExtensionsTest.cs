@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using MMLib.Extensions;
+using System.Xml.Serialization;
+using System.Xml.Linq;
 
 namespace MMLib.Extensions.Test
 {
@@ -84,6 +86,37 @@ namespace MMLib.Extensions.Test
                 //Ok
             }
         }
+
+
+        [TestMethod]
+        public void ToXElement_Test()
+        {
+            TestClass target = new TestClass()
+            {
+                DateTimeValue = new DateTime(2001, 1, 20),
+                StringValue = "Mino",
+                IntValue = 22,
+                DoubleValue = 31.8,
+                Temp = "Nonserialized"
+            };
+
+            var actual = target.ToXElement();
+
+            Assert.AreEqual(Properties.Settings.Default.TestSerializedExpected, actual.ToString());
+        }
+
+
+        [TestMethod]
+        public void FromXElement_Test()
+        {           
+            XElement target = XElement.Parse(Properties.Settings.Default.TestSerializedExpected);
+            TestClass actual = target.FromXElement<TestClass>();
+
+            Assert.AreEqual(new DateTime(2001, 1, 20), actual.DateTimeValue);
+            Assert.AreEqual("Mino", actual.StringValue);
+            Assert.AreEqual(22, actual.IntValue);
+            Assert.AreEqual(31.8, actual.DoubleValue);
+        }
     }
 
 
@@ -96,5 +129,8 @@ namespace MMLib.Extensions.Test
         public double DoubleValue { get; set; }
 
         public DateTime DateTimeValue { get; set; }
+
+        [XmlIgnore]
+        public string Temp { get; set; }
     }
 }
