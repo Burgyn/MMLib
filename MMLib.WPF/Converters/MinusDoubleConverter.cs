@@ -28,7 +28,9 @@ namespace MMLib.WPF.Converters
             double oreginalValue = (double)value;
             double parameterValue = (double)parameter;
 
-            return oreginalValue - parameterValue;
+            double ret = oreginalValue - parameterValue;
+
+            return ret >= 0 ? ret : 0;
         }
 
         /// <summary>
