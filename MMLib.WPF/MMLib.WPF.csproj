@@ -66,13 +66,13 @@
     <Reference Include="Microsoft.Practices.Unity.Configuration">
       <HintPath>..\packages\Unity.2.1.505.2\lib\NET35\Microsoft.Practices.Unity.Configuration.dll</HintPath>
     </Reference>
-    <Reference Include="MMLib.Core, Version=1.0.5141.32594, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="MMLib.Core, Version=1.0.5245.33448, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\MMLib.Extensions.1.0.10.9\lib\MMLib.Core.dll</HintPath>
+      <HintPath>..\packages\MMLib.Extensions.1.0.10.12\lib\MMLib.Core.dll</HintPath>
     </Reference>
-    <Reference Include="MMLib.Extensions, Version=1.0.2.3, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="MMLib.Extensions, Version=1.0.2.6, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\MMLib.Extensions.1.0.10.9\lib\MMLib.Extensions.dll</HintPath>
+      <HintPath>..\packages\MMLib.Extensions.1.0.10.12\lib\MMLib.Extensions.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
