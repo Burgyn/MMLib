@@ -16,7 +16,14 @@
                     <Grid>
                         <VisualStateManager.VisualStateGroups>
                             <VisualStateGroup x:Name="CommonStates">
-                                <VisualState x:Name="Disabled" />
+                                <VisualState x:Name="Disabled" >
+                                    <Storyboard>
+                                        <DoubleAnimation Storyboard.TargetProperty="Opacity" 
+                                                         Storyboard.TargetName="disabled" 
+                                                         To="0.3" 
+                                                         Duration="0" />
+                                    </Storyboard>
+                                </VisualState>
                                 <VisualState x:Name="Normal" />
                                 <VisualState x:Name="MouseOver">
                                     <Storyboard>
@@ -46,6 +53,9 @@
                                    x:Name="content"
                                    Opacity="0.5"/>
                         </Border>
+                        <Border x:Name="disabled"
+                                Opacity="0"                                
+                                Background="Black"/>
                     </Grid>
                     <ControlTemplate.Triggers>
                         <Trigger SourceName="mainBorder" 
