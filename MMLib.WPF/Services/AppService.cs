@@ -51,15 +51,21 @@ namespace MMLib.WPF.Services
         /// </summary>
         public void StartReceiving()
         {
-            _host = new ServiceHost(
-                   typeof(StartAppService),
-                   new Uri[]{
+            try
+            {
+                _host = new ServiceHost(
+                           typeof(StartAppService),
+                           new Uri[]{
                         new Uri("net.pipe://localhost")});
 
-            _host.AddServiceEndpoint(typeof(IStartAppService),
-                new NetNamedPipeBinding(), GetAppName());
+                _host.AddServiceEndpoint(typeof(IStartAppService),
+                    new NetNamedPipeBinding(), GetAppName());
 
-            _host.Open();
+                _host.Open();
+            }
+            catch
+            {                
+            }
         }
 
         #endregion
