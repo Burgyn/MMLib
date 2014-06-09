@@ -58,7 +58,7 @@
                                 Background="Black"/>
                     </Grid>
                     <ControlTemplate.Triggers>
-                        <Trigger SourceName="mainBorder" 
+                        <Trigger SourceName="disabled" 
                                  Property="IsMouseOver" 
                                  Value="True">
                             <Setter TargetName="mainBorder" 
