@@ -16,7 +16,7 @@ namespace MMLib.MVVM.Services
         #region private fields
 
         private UnityContainer _conainer;
-        private IAppMainViewModel _appMainViewModel;
+        protected IAppMainViewModel _appMainViewModel;
         private IAppContent _appHomeContent;
         private Stack<IAppContent> _navigationHistory = new Stack<IAppContent>();
 
@@ -73,10 +73,14 @@ namespace MMLib.MVVM.Services
         /// <param name="target">Navigate to new target appliaction content.</param>
         public virtual void NavigateTo(IAppContent target)
         {
-            Contract.Requires(target != null);           
+            Contract.Requires(target != null);
 
-            CheckHistory(target);
-            OnNavigateTo(target);           
+            if (_appMainViewModel.AppContent == null || 
+                (target != null && target.GetHashCode() != _appMainViewModel.AppContent.GetHashCode()))
+            {
+                CheckHistory(target);
+                OnNavigateTo(target);  
+            }          
         }
 
         /// <summary>
