@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
   <metadata>
     <id>MMLib.Extensions</id>
-    <version>1.0.10.8</version>
+    <version>1.0.10.13</version>
     <title>MMLib extensions</title>
     <authors>Mino Martiniak</authors>
     <owners>Mino Martiniak</owners>
@@ -13,8 +13,8 @@
     <description>Extensions for standard .NET types like string, DateTime ...
 (RemoveDiacritics, SafeTrim, ...)</description>
     <summary>Extensions for standard .NET types.</summary>
-    <releaseNotes>v1.0.10.7 add extensions for object class. Reflection helper (GetPropertyValue, SetPropertyValue)</releaseNotes>
+    <releaseNotes>v1.0.10.13 Update references</releaseNotes>
     <copyright>Copyright © Mino Martinak  2014</copyright>
-    <tags>String Extensions StringExtensions StringExtension RemoveDiacritics helpers DateTimeExtensions DateTimeExtension DateTime ObjectExtension ReflectionHelper GetPropertyValue SetPropertyValue</tags>
+    <tags>String Extensions StringExtensions StringExtension RemoveDiacritics helpers DateTimeExtensions DateTimeExtension DateTime ObjectExtension ReflectionHelper GetPropertyValue SetPropertyValue XML serialization</tags>
   </metadata>
 </package>

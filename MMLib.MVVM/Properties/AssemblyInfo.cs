@@ -10,7 +10,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Mino Martiniak")]
 [assembly: AssemblyProduct("MMLib.MVVM")]
-[assembly: AssemblyCopyright("Copyright © HP 2014")]
+[assembly: AssemblyCopyright("Copyright © Mino Martinak  2014")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
