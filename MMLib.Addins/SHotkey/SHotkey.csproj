@@ -186,10 +186,15 @@
     <None Include="Resources\Images.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Resources\Settings.png" />
-    <Resource Include="1441897603_flash_auto.ico">
+    <Content Include="Screenshot_1.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Resource Include="Resources\Settings.png" />
+    <Content Include="1441897603_flash_auto.ico">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
     <Resource Include="Resources\MenuImage.png" />
     <Resource Include="Resources\MenuImage.bmp" />
     <Resource Include="Resources\Main.ico">
