@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011" xmlns:d="http://schemas.microsoft.com/developer/vsx-schema-design/2011">
+  <Metadata>
+    <Identity Id="4411f729-5227-4256-bc1b-6fe3ef5370ee" Version="1.0" Language="en-US" Publisher="Mino Martiniak" />
+    <DisplayName>SHotkey</DisplayName>
+    <Description xml:space="preserve">Shotkey is a free extension for searching keyboard shortcut. 
+You can search by command name or by shortcut.</Description>
+    <Icon>1441736040_keyboard_layout16.ico</Icon>
+    <PreviewImage>Keyboard.png</PreviewImage>
+    <Tags>Hotkey, Shortcut, keyboard, search shortcut</Tags>
+  </Metadata>
+  <Installation InstalledByMsi="false">
+    <InstallationTarget Id="Microsoft.VisualStudio.Pro" Version="11.0" />
+    <InstallationTarget Version="11.0" Id="Microsoft.VisualStudio.Premium" />
+    <InstallationTarget Version="11.0" Id="Microsoft.VisualStudio.Ultimate" />
+    <InstallationTarget Version="11.0" Id="Microsoft.VisualStudio.IntegratedShell" />
+    <InstallationTarget Version="11.0" Id="Microsoft.VisualStudio.VSLS" />
+    <InstallationTarget Id="Microsoft.VisualStudio.Pro" Version="12.0" />
+    <InstallationTarget Version="12.0" Id="Microsoft.VisualStudio.Premium" />
+    <InstallationTarget Version="12.0" Id="Microsoft.VisualStudio.Ultimate" />
+    <InstallationTarget Version="12.0" Id="Microsoft.VisualStudio.IntegratedShell" />
+    <InstallationTarget Version="12.0" Id="Microsoft.VisualStudio.VSLS" />
+  </Installation>
+  <Dependencies>
+    <Dependency Id="Microsoft.Framework.NDP" DisplayName="Microsoft .NET Framework" d:Source="Manual" Version="4.5" />
+  </Dependencies>
+  <Assets>
+    <Asset Type="Microsoft.VisualStudio.VsPackage" d:Source="Project"
+           d:ProjectName="SearchingKeyboardShortcut"
+           Path="|SearchingKeyboardShortcut;PkgdefProjectOutputGroup|" />
+  </Assets>
+</PackageManifest>
