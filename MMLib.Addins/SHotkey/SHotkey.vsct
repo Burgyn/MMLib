@@ -96,6 +96,12 @@
     </Bitmaps>
  
   </Commands>
+  <KeyBindings>
+    <KeyBinding guid="guidSHotkeyCmdSet" id="searchShortcut"
+        key1="T" mod1="CONTROL" key2="F" editor="guidVSStd97" />
+    <KeyBinding guid="guidSHotkeyCmdSet" id="searchShortcutTool"
+        key1="T" mod1="CONTROL" mod2="Control" key2="F" editor="guidVSStd97" />
+  </KeyBindings>
   <Symbols>
     <!-- This is the package guid. -->
     <GuidSymbol name="guidSHotkeyPkg" value="{02078ebf-2c93-4560-be2d-caf994add48b}" />

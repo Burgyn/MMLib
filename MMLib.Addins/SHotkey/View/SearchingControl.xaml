@@ -9,7 +9,7 @@
              d:DesignHeight="300" d:DesignWidth="300"
              Name="MyToolWindow" DataContextChanged="MyToolWindow_DataContextChanged">
     <UserControl.Resources>
-        
+
         <SolidColorBrush x:Key="NormalBrush" Color="#FFF" />
 
         <LinearGradientBrush x:Key="HorizontalNormalBrush" StartPoint="0,0" EndPoint="1,0">
@@ -168,9 +168,31 @@
                     Value="{DynamicResource VsBrush.WindowText}" />
             <Setter Property="Opacity" Value="0.8" />
             <Setter Property="BorderThickness" Value="0"/>
+
+            <Style.Triggers>
+                <Trigger Property="IsSelected"
+                        Value="True">
+                    <Setter Property="Background"
+                        Value="#3498db" />
+                    <Setter Property="Opacity" Value="1" />
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+        <Style TargetType="DataGridRow">
+            <Style.Triggers>
+                <Trigger Property="IsSelected"
+                        Value="True">
+                    <Setter Property="Background"
+                        Value="#3498db" />
+                </Trigger>
+            </Style.Triggers>
         </Style>
         <Style TargetType="{x:Type DataGridColumnHeader}">
-            <Setter Property="Height" Value="25" />            
+            <Setter Property="Height" Value="25" />
+            <Setter Property="Padding" Value="5" />
+            <Setter Property="BorderThickness" Value="0,0,1,1" />
+            <Setter Property="BorderBrush" Value="{DynamicResource VsBrush.CommandBarMenuSeparator}" />
             <Setter Property="Background" 
                     Value="{DynamicResource VsBrush.Window}" />
             <Setter Property="Foreground" 
@@ -193,15 +215,15 @@
                               CornerRadius="0" 
                               Padding="2"
                                Background="{DynamicResource VsBrush.SearchBoxBackground}"
-                               BorderBrush="{DynamicResource VsBrush.SearchBoxBorder}"
+                               BorderBrush="{DynamicResource VsBrush.CommandBarMenuSeparator}"
                               BorderThickness="1" >
                             <ScrollViewer Margin="0" x:Name="PART_ContentHost"/>
-                        </Border>                       
+                        </Border>
                     </ControlTemplate>
                 </Setter.Value>
             </Setter>
         </Style>
-        
+
     </UserControl.Resources>
     <Grid>
         <Grid.RowDefinitions>
@@ -231,14 +253,15 @@
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
             <Label Margin="5,1" Content="Search:"  Foreground="{DynamicResource VsBrush.CaptionText}" />
-            <TextBox Grid.Column="1" Margin="1"
+            <TextBox Grid.Column="1" Margin="1,1,2,1"
                      Background="{DynamicResource VsBrush.SearchBoxBackground}"
-                     BorderBrush="{DynamicResource VsBrush.SearchBoxBorder}"
+                     BorderBrush="{DynamicResource VsBrush.ActiveBorder}"
                      Text="{Binding Path=SearchingString, UpdateSourceTrigger=PropertyChanged}"
                      x:Name="txtSearch" />
         </Grid>
-        <DataGrid Grid.Row="2" ItemsSource="{Binding Path=ItemsSource}" AutoGenerateColumns="False" IsReadOnly="True" PreviewKeyDown="DataGrid_PreviewKeyDown"
-                  BorderThickness="0"
+        <DataGrid Margin="2" Grid.Row="2" ItemsSource="{Binding Path=ItemsSource}" AutoGenerateColumns="False" IsReadOnly="True" PreviewKeyDown="DataGrid_PreviewKeyDown"
+                  BorderThickness="1"
+                  BorderBrush="{DynamicResource VsBrush.CommandBarMenuSeparator}"
                   RowHeaderWidth="0"                   
                   HorizontalGridLinesBrush="{DynamicResource ResourceKey=VsBrush.GridLine}"
                   VerticalGridLinesBrush="{DynamicResource ResourceKey=VsBrush.GridLine}"
