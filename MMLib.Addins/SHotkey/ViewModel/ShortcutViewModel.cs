@@ -5,6 +5,7 @@ using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Data;
 
@@ -19,6 +20,7 @@ namespace MMLib.SHotkey.ViewModel
         private EnvDTE80.DTE2 _applicationObject;
         private ObservableCollection<VSCommand> _itemsSource;
         private ICollectionView _commandsView;
+        private Regex _searchPattern;
 
         #endregion
 
@@ -54,6 +56,7 @@ namespace MMLib.SHotkey.ViewModel
             }
             set
             {
+                _searchPattern = new Regex(value, RegexOptions.IgnoreCase);
                 SetPropertyValue<string>(() => SearchingString, ref _searchingString, value);
                 _commandsView.Refresh();
             }
@@ -67,12 +70,13 @@ namespace MMLib.SHotkey.ViewModel
             if (!string.IsNullOrWhiteSpace(this.SearchingString))
             {
                 if (this.SearchByShortcut)
-                {
-                    ret = command.Shortcut.Equals(this.SearchingString, StringComparison.InvariantCultureIgnoreCase);
+                {                    
+                    ret =  command.Shortcut.Equals(this.SearchingString, StringComparison.InvariantCultureIgnoreCase);
                 }
-                else {
-                    ret = command.Name.IndexOf(this.SearchingString, 0, StringComparison.InvariantCultureIgnoreCase) >= 0;
-                }        
+                else
+                {
+                    ret = _searchPattern.IsMatch(command.Name);
+                }
             }
             return ret;
         }
@@ -91,8 +95,8 @@ namespace MMLib.SHotkey.ViewModel
                 if (_itemsSource == null)
                 {
                     LoadCommands();
-                     _commandsView = CollectionViewSource.GetDefaultView(_itemsSource);
-                     _commandsView.Filter = CommandFilter;
+                    _commandsView = CollectionViewSource.GetDefaultView(_itemsSource);
+                    _commandsView.Filter = CommandFilter;
                 }
                 return _itemsSource;
             }
