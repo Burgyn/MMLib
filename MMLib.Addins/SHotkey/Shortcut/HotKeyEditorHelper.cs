@@ -28,8 +28,9 @@ namespace SearchingKeyboardShortcut
         {
             var textBox = sender as TextBox;
 
-            if (!_ignoredKey.Contains(e.Key))
+            if (!_ignoredKey.Contains(e.Key) && (e.Key != Key.System || (e.Key == Key.System && !_ignoredKey.Contains(e.SystemKey))))
             {
+                var key = (e.Key == Key.System && !_ignoredKey.Contains(e.SystemKey)) ? e.SystemKey : e.Key;
                 if (!string.IsNullOrWhiteSpace(textBox.Text) && (_lastKey == null))
                 {
                     textBox.Text = string.Empty;
@@ -41,9 +42,8 @@ namespace SearchingKeyboardShortcut
                         Ctrl = ((Keyboard.Modifiers & ModifierKeys.Control) == ModifierKeys.Control),
                         Alt = ((Keyboard.Modifiers & ModifierKeys.Alt) == ModifierKeys.Alt),
                         Shift = ((Keyboard.Modifiers & ModifierKeys.Shift) == ModifierKeys.Shift),
-                        Key = e.Key
-                    };
-                    e.Handled = true;
+                        Key = key
+                    };                    
                     textBox.Text = string.Format("{0}{1}{2}", _lastKey != null ? _lastKey.ToString() : string.Empty,
                         string.IsNullOrWhiteSpace(textBox.Text) ? string.Empty : ", ", hotKey);
                     textBox.SelectionStart = textBox.Text.Length;
@@ -58,8 +58,7 @@ namespace SearchingKeyboardShortcut
                     }
                 }
             }
+            e.Handled = true;
         }
-
-
     }
 }

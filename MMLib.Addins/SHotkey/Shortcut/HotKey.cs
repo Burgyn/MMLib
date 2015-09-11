@@ -9,7 +9,7 @@ namespace SearchingKeyboardShortcut
 {
     public class HotKey
     {
-        public bool Ctrl {get;set;}
+        public bool Ctrl { get; set; }
 
         public bool Shift { get; set; }
 
@@ -19,7 +19,60 @@ namespace SearchingKeyboardShortcut
 
         public override string ToString()
         {
-            return (Ctrl ? "Ctrl+" : "") + (Shift ? "Shift+" : "") + (Alt ? "Alt+" : "") + Key.ToString();
+            return string.Format("{0}{1}{2}{3}", (Ctrl ? "Ctrl+" : ""), (Shift ? "Shift+" : ""), (Alt ? "Alt+" : ""), KeyToString(Key));
+        }
+
+        public string KeyToString(Key key)
+        {
+            var ret = key.ToString();
+
+            switch (key)
+            {
+                case Key.NumPad0:
+                    ret = "0";
+                    break;
+                case Key.NumPad1:
+                    ret = "1";
+                    break;
+                case Key.NumPad2:
+                    ret = "2";
+                    break;
+                case Key.NumPad3:
+                    ret = "3";
+                    break;
+                case Key.NumPad4:
+                    ret = "4";
+                    break;
+                case Key.NumPad5:
+                    ret = "5";
+                    break;
+                case Key.NumPad6:
+                    ret = "6";
+                    break;
+                case Key.NumPad7:
+                    ret = "7";
+                    break;
+                case Key.NumPad8:
+                    ret = "8";
+                    break;
+                case Key.NumPad9:
+                    ret = "9";
+                    break;
+                case Key.Down:
+                    ret = "Down Arrow";
+                    break;
+                case Key.Up:
+                    ret = "Up Arrow";
+                    break;
+                case Key.Right:
+                    ret = "Right Arrow";
+                    break;
+                case Key.Left:
+                    ret = "Left Arrow";
+                    break;
+            }
+
+            return ret;
         }
     }
 }

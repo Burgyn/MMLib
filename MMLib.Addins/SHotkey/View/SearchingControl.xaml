@@ -257,12 +257,13 @@
                      Background="{DynamicResource VsBrush.SearchBoxBackground}"
                      BorderBrush="{DynamicResource VsBrush.ActiveBorder}"
                      Text="{Binding Path=SearchingString, UpdateSourceTrigger=PropertyChanged}"
-                     x:Name="txtSearch" />
+                     x:Name="txtSearch" PreviewKeyDown="txtSearch_PreviewKeyDown" />
         </Grid>
         <DataGrid Margin="2" Grid.Row="2" ItemsSource="{Binding Path=ItemsSource}" AutoGenerateColumns="False" IsReadOnly="True" PreviewKeyDown="DataGrid_PreviewKeyDown"
-                  BorderThickness="1"
+                  BorderThickness="1"                  
                   BorderBrush="{DynamicResource VsBrush.CommandBarMenuSeparator}"
-                  RowHeaderWidth="0"                   
+                  RowHeaderWidth="0" 
+                  x:Name="dataGrid"
                   HorizontalGridLinesBrush="{DynamicResource ResourceKey=VsBrush.GridLine}"
                   VerticalGridLinesBrush="{DynamicResource ResourceKey=VsBrush.GridLine}"
                   HeadersVisibility="Column"
@@ -276,5 +277,15 @@
                                     MinWidth="100" Binding="{Binding Path=Shortcut}"/>
             </DataGrid.Columns>
         </DataGrid>
+        
+        <Grid Grid.Row="3">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+            <Label Content="{Binding ElementName=dataGrid, Path=SelectedItem}"
+                   Foreground="{DynamicResource VsBrush.WindowText}"
+                   Opacity="0.7"/>
+        </Grid>
     </Grid>
 </UserControl>

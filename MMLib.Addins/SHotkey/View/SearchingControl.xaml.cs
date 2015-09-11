@@ -28,7 +28,7 @@ namespace MMLib.SHotkey
 
         public SearchingControl()
         {
-            InitializeComponent();            
+            InitializeComponent();
             DTE2 dte = ServiceProvider.GlobalProvider.GetService(typeof(SDTE)) as DTE2;
             _dataContext = new ViewModel.ShortcutViewModel(dte);
             this.DataContext = _dataContext;
@@ -45,7 +45,7 @@ namespace MMLib.SHotkey
         private void MyToolWindow_DataContextChanged(object sender, DependencyPropertyChangedEventArgs e)
         {
             SearchTypeInfo();
-            txtSearch.Focus();            
+            txtSearch.Focus();
         }
 
         private void CheckBox_Checked(object sender, RoutedEventArgs e)
@@ -88,9 +88,21 @@ namespace MMLib.SHotkey
         {
             if (e.Key != Key.Down && e.Key != Key.Up)
             {
-                txtSearch.Focus();                
+                txtSearch.Focus();
                 txtSearch.SelectionStart = 1;
                 txtSearch.SelectionLength = 0;
+            }
+        }
+
+        private void txtSearch_PreviewKeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Down && dataGrid.SelectedIndex < _dataContext.ItemsSource.Count - 1)
+            {
+                dataGrid.SelectedIndex++;
+            }
+            else if (e.Key == Key.Up && dataGrid.SelectedIndex > 0)
+            {
+                dataGrid.SelectedIndex--;
             }
         }
     }
