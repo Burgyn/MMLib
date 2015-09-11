@@ -70,6 +70,30 @@ namespace SearchingKeyboardShortcut
                 case Key.Left:
                     ret = "Left Arrow";
                     break;
+                case Key.Subtract:
+                    ret = "-";
+                    break;
+                case Key.Add:
+                    ret = "+";
+                    break;
+                case Key.Multiply:
+                    ret = "*";
+                    break;
+                case Key.Divide:
+                    ret = "/";
+                    break;
+                case Key.Decimal:
+                    ret = ",";
+                    break;
+                case Key.OemComma:
+                    ret = ",";
+                    break;
+                case Key.OemPeriod:
+                    ret = ".";
+                    break;
+                case Key.OemPipe:
+                    ret = "|";
+                    break;
             }
 
             return ret;
