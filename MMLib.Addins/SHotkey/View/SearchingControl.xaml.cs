@@ -46,6 +46,10 @@ namespace MMLib.SHotkey
         {
             SearchTypeInfo();
             txtSearch.Focus();
+            if (e.NewValue == null)
+            {
+                _hotKeyEditor.Detach(txtSearch);
+            }
         }
 
         private void CheckBox_Checked(object sender, RoutedEventArgs e)

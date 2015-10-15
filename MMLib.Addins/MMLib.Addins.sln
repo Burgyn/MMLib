@@ -3,15 +3,20 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SHotkey", "SHotkey\SHotkey.csproj", "{465CDF99-632B-4F08-8AD9-548A748A5FC4}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InvertAssignment", "InvertAssignment\InvertAssignment.csproj", "{446C4A42-71E3-42E1-BFBE-1033B282B408}"
+EndProject
 Global
 	GlobalSection(TeamFoundationVersionControl) = preSolution
-		SccNumberOfProjects = 2
+		SccNumberOfProjects = 3
 		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
-		SccTeamFoundationServer = https://tfs.codeplex.com/tfs/tfs36
+		SccTeamFoundationServer = https://minomartiniak.visualstudio.com/defaultcollection
 		SccLocalPath0 = .
 		SccProjectUniqueName1 = SHotkey\\SHotkey.csproj
 		SccProjectName1 = SHotkey
 		SccLocalPath1 = SHotkey
+		SccProjectUniqueName2 = InvertAssignment\\InvertAssignment.csproj
+		SccProjectName2 = InvertAssignment
+		SccLocalPath2 = InvertAssignment
 	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -22,6 +27,10 @@ Global
 		{465CDF99-632B-4F08-8AD9-548A748A5FC4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{465CDF99-632B-4F08-8AD9-548A748A5FC4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{465CDF99-632B-4F08-8AD9-548A748A5FC4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{446C4A42-71E3-42E1-BFBE-1033B282B408}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{446C4A42-71E3-42E1-BFBE-1033B282B408}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{446C4A42-71E3-42E1-BFBE-1033B282B408}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{446C4A42-71E3-42E1-BFBE-1033B282B408}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

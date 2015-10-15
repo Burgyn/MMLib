@@ -166,7 +166,7 @@
                     Value="{DynamicResource VsBrush.Window}" />
             <Setter Property="Foreground" 
                     Value="{DynamicResource VsBrush.WindowText}" />
-            <Setter Property="Opacity" Value="0.8" />
+            <Setter Property="Opacity" Value="0.9" />
             <Setter Property="BorderThickness" Value="0"/>
 
             <Style.Triggers>
@@ -285,7 +285,7 @@
             </Grid.ColumnDefinitions>
             <Label Content="{Binding ElementName=dataGrid, Path=SelectedItem}"
                    Foreground="{DynamicResource VsBrush.WindowText}"
-                   Opacity="0.7"/>
+                   Opacity="0.8"/>
         </Grid>
     </Grid>
 </UserControl>

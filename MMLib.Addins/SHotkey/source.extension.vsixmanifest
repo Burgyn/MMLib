@@ -1,12 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011" xmlns:d="http://schemas.microsoft.com/developer/vsx-schema-design/2011">
   <Metadata>
-    <Identity Id="02078ebf-2c93-4560-be2d-caf994add48b" Version="1.3" Language="en-US" Publisher="MMLib" />
+    <Identity Id="02078ebf-2c93-4560-be2d-caf994add48b" Version="1.4" Language="en-US" Publisher="MMLib" />
     <DisplayName>SHotkey</DisplayName>
     <Description xml:space="preserve">SHotkey is free extension, which allow searching keyboard shortcuts for command in Visual studio.
 You can search by command name or shortcut.
     </Description>
-    <ReleaseNotes>Information about shortcut validity</ReleaseNotes>
+    <ReleaseNotes>ReleaseNotes.txt</ReleaseNotes>
     <Icon>1441897603_flash_auto.ico</Icon>
     <PreviewImage>Screenshot_1.png</PreviewImage>
     <Tags>Shortcuts, Hotkey, keboard shortcut, searching shortcut</Tags>
